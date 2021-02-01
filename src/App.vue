@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <administrator/>
   </div>
 </template>
@@ -7,17 +7,18 @@
 <script>
 import administrator from '@components/administrator.vue'
 export default {
-  name: 'App',
-  components: {
-    administrator
-  }
+name:'',
+components: {
+  administrator
 }
-</script>
 
+}
+
+</script>
 <style>
 *{
   margin: 0;
-padding: 0;
-font-family: "微软雅黑","Microsoft YaHei"
+  padding: 0;
+  font-family: "微软雅黑";
 }
 </style>

@@ -1,2 +1,10 @@
 $backgroundcolor:#F8F9FC;
 $fontcolor:#333333;
+@mixin shadow{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+@mixin center{
+display: flex;
+justify-content: center;
+align-items: center;
+}
