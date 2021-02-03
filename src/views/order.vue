@@ -1,13 +1,11 @@
 <template>
-  <div>订单管理</div>
+  <div>订单</div>
 </template>
 
 <script>
 export default {
-name:''
-
+    name:'order'
 }
-
 </script>
 <style scoped>
 </style>

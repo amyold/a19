@@ -4,10 +4,8 @@
 
 <script>
 export default {
-name:''
-
-}
-
+    name:'home'
+  }
 </script>
 <style scoped>
 </style>

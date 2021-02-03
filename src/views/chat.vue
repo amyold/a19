@@ -4,10 +4,8 @@
 
 <script>
 export default {
-name:''
-
+name:'chat'
 }
-
 </script>
 <style scoped>
 </style>

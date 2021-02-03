@@ -4,11 +4,20 @@ import ElementUI from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
-Vue.use(ElementUI);
 
+import search from '@components/search.vue'
+import sort from '@components/sort.vue'
+import cancel from '@components/cancel.vue'
+
+
+Vue.use(ElementUI);
+Vue.component('search',search)
+Vue.component('sort',sort)
+Vue.component('cancel',cancel)
 Vue.config.productionTip = false
 
 new Vue({
+  el: '#app',
   router,
   render: h => h(App)
 }).$mount('#app')

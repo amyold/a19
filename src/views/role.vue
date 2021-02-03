@@ -1,13 +1,11 @@
 <template>
-  <div>人物</div>
+  <div>角色列表</div>
 </template>
 
 <script>
 export default {
-name:''
-
+name:'chat'
 }
-
 </script>
 <style scoped>
 </style>
