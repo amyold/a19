@@ -59,7 +59,7 @@
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="check">查看详情</el-button>
+         <el-button  type="primary" class="check" @click="more=true">查看详情</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -71,7 +71,26 @@
      </div>
         </div> 
       </div>
+       <el-dialog
+  title="编辑"
+  :visible.sync="more"
+  width="40%"
+  >
+  <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+  <el-form-item label="角色名称" prop="charactname">
+    <el-input v-model="ruleForm.charactname"></el-input>
+  </el-form-item>
+  <el-form-item label="描述" prop="description">
+    <el-input v-model="ruleForm.description"></el-input>
+  </el-form-item>
+  </el-form>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="more = false">取 消</el-button>
+    <el-button type="primary" @click="more = false">确 定</el-button>
+  </span>
+</el-dialog>
     </el-main>
+    
   </el-container>
 </template>
 
@@ -80,8 +99,13 @@ export default {
   name:'order',
   data() {
     return {
+      more:false,
     value1: true,
     count: 1,
+    ruleForm: {
+          charactername: '',
+          description: '',
+        },
     tableData: [{
           number: 1,
           orderNumber: 'dadadad',

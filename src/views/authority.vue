@@ -15,11 +15,11 @@
         <div class="detail">
           <div class="box">
             <img src="@assets/member/添加人员.png">
-            <el-button type="primary" >单独添加</el-button>
+            <el-button type="primary" @click="addpeople=true">单独添加</el-button>
           </div>
           <div class="box">
             <img src="@assets/member/重点人群.png">
-            <el-button type="primary">批量添加</el-button>
+            <el-button type="primary" @click="batchadd=true">批量添加</el-button>
           </div>
           <div class="box">
             <img src="@assets/member/模板.png">
@@ -101,20 +101,53 @@
       </el-pagination>
      </div>
         </div> 
+       
       </div>
+      <el-dialog
+  title="单独添加"
+  :visible.sync="addpeople"
+  width="40%"
+  >
+  <addform/>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="addpeople = false">取 消</el-button>
+    <el-button type="primary" @click="addpeople = false">确 定</el-button>
+  </span>
+</el-dialog>
+ <el-dialog
+  title="批量上传"
+  :visible.sync="batchadd"
+  width="40%"
+  class="dialog_two"
+  >
+  <div class="box">
+    <img src="@assets/home/上传.png" alt="">
+    <span>点击上传</span>
+  </div>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="batchadd = false">取 消</el-button>
+    <el-button type="primary" @click="batchadd = false">确 定</el-button>
+  </span>
+</el-dialog>
+
     </el-main>
   </el-container>
 </template>
 
 <script>
 import Search from '../components/search.vue'
+import addform from '@views/userManage/addform.vue'
+
 export default {
   name:'member',
   components: {
-  Search
+  Search,
+  addform
 },
   data() {
   return {
+    addpeople:false,
+    batchadd:false,
     value1: true,
     count: 1,
     tableData: [{
@@ -145,6 +178,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+@import '@style/color.scss';
 .name {
   display: flex;
   font-size: 18px;
@@ -238,5 +272,22 @@ export default {
 .el-pagination {
     padding-left: 1200px;
     padding-top: 20px;
+}
+
+.dialog_two .box{
+  width: 360px;
+  height: 200px;
+  border: dashed 1px #707070;
+  @include center;
+  flex-direction: column;
+  span{
+color: #b6b6b6;
+font-weight: bold;
+font-size: 20px;
+    margin-top: 25px;
+  }
+  img{
+    width: 85px;
+  }
 }
 </style>
