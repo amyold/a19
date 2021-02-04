@@ -1,5 +1,5 @@
 <template>
-    <div class="cancel">
+    <div class="sort">
         <img src="@assets/member/排序.png">
     </div>
 </template>
@@ -11,11 +11,12 @@ export default {
 </script>
 
 <style lang="scss">
-.cancel{
+.sort{
     width: 60px;
     height: 60px;
     border-radius: 30px;
     display: flex;
+    margin-left: 20px;
     justify-content: center;
     align-items: center;
     background-color: #16C2C2;
@@ -26,7 +27,7 @@ export default {
     }
 }
 
-.cancel:hover{
+.sort:hover{
     background-color: #333;
 }
 </style>

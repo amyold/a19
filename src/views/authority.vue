@@ -15,11 +15,11 @@
         <div class="detail">
           <div class="box">
             <img src="@assets/member/添加人员.png">
-            <el-button type="primary" @click="add_dialog = true">单独添加</el-button>
+            <el-button type="primary" >单独添加</el-button>
           </div>
           <div class="box">
             <img src="@assets/member/重点人群.png">
-            <el-button type="primary" @click="add_dialog_two = true">批量添加</el-button>
+            <el-button type="primary">批量添加</el-button>
           </div>
           <div class="box">
             <img src="@assets/member/模板.png">
@@ -29,16 +29,78 @@
       </div>
       <div class="about">
         <div class="title">
-          <img src="@assets/member/概述.png" alt="">
+          <img src="@assets/member/概述.png">
           <p>权限人员概况</p>
         </div>
-        <div class="list">
-          <search/>
-          <div class="op">
-            <sort/>
-            <cancel/>
-          </div>
-        </div>  
+        <div class="op">
+          <div class="seek"><search/></div>
+          <sort/>
+          <cancel/>
+        </div>
+        <div class="datalist">
+          <el-table
+       ref="multipleTable"
+       :data="tableData"
+       tooltip-effect="dark"
+       style="width: 1412px"
+       :header-cell-style="{'text-align':'center'}"
+       :cell-style="{'text-align':'center','pading-top':'20px'}"
+       @selection-change="handleSelectionChange">
+       <el-table-column
+         type="selection"
+         width="55">
+       </el-table-column>
+       <el-table-column
+         prop="number"
+         label="序号"
+         width="120">
+       </el-table-column>
+       <el-table-column
+         prop="name"
+         label="姓名"
+         width="120">
+       </el-table-column>
+       <el-table-column
+         prop="account"
+         label="账号"
+         width="120">
+       </el-table-column>
+       <el-table-column
+         prop="email"
+         label="邮箱"
+         width="180">
+       </el-table-column>
+       <el-table-column
+         prop="addTime"
+         label="添加时间"
+         width="200">
+       </el-table-column>
+       <el-table-column
+         prop="lastTime"
+         label="最后登录时间"
+         width="200">
+       </el-table-column>
+       <el-table-column
+         label="是否启用"
+         width="120">
+         <el-switch v-model="value1">
+</el-switch>
+       </el-table-column>
+       <el-table-column
+         label="操作"
+         show-overflow-tooltip>
+         <el-button  type="primary" class="edit">编辑</el-button>
+         <el-button  type="primary" class="cancel1">删除</el-button>
+       </el-table-column>
+     </el-table>
+     <div id="page">
+       <el-pagination
+        background
+        layout="total, prev, pager, next"
+        :total="count">
+      </el-pagination>
+     </div>
+        </div> 
       </div>
     </el-main>
   </el-container>
@@ -47,13 +109,39 @@
 <script>
 import Search from '../components/search.vue'
 export default {
-name:'member',
-components: {
-Search
+  name:'member',
+  components: {
+  Search
 },
-data() {
-  return {}
-}
+  data() {
+  return {
+    value1: true,
+    count: 1,
+    tableData: [{
+          number: 1,
+          name: 'minus',
+          account: '18559120521',
+          email: '1874508358@qq.com',
+          addTime: '2019-07-04 23:59:59',
+          lastTime: '2020-07-04 23:59:59',
+        }],
+        multipleSelection: []
+  }
+},
+  methods: {
+      toggleSelection(rows) {
+        if (rows) {
+          rows.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row);
+          });
+        } else {
+          this.$refs.multipleTable.clearSelection();
+        }
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      }
+    }
 }
 </script>
 <style lang='scss' scoped>
@@ -71,11 +159,12 @@ data() {
 }
 
 .add {
-  padding: 0 329px 0 104px;
+  padding-left: 104px;
   .detail {
     display: flex;
     justify-content: space-between;
     padding-left: 27px;
+    padding-right: 329px;
     .box {
       display: flex;
       flex-direction: column;
@@ -102,11 +191,6 @@ data() {
     }
   }
 }
-
-.about {
-  padding: 48px 329px 0 104px;
-}
-
 .title {
     display: flex;
     margin: 27px  0;
@@ -116,14 +200,43 @@ data() {
       padding-right: 10px
     };
     p {font: 16px;}
-  }
+}
 
-.list {
+.about {
   display: flex;
-  .search {
+  flex-direction: column;
+  padding-left: 104px;
+  .seek {
+    padding-right: 27px;
   }
   .op {
     display: flex;
   }
+  .datalist {
+    margin-top: 24px;
+    .page {
+      margin-top: 24px;
+    }
+  }
+}
+
+.el-button--primary {
+  width: 96px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+}
+.edit {
+  background-color: #957BF1;
+}
+
+.cancel1 {
+  background-color: #F56C6C;
+}
+
+.el-pagination {
+    padding-left: 1200px;
+    padding-top: 20px;
 }
 </style>

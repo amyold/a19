@@ -1,19 +1,5 @@
 <template>
-  <el-container>
-    <el-header>
-      <div class="name">
-        <img src="@assets/home/菜单.png">
-        <div>角色列表</div>
-      </div>
-    </el-header>
-    <el-main>
-      <div class="about">
-        <div class="op">
-          <div class="seek"><search/></div>
-          <sort/>
-          <cancel/>
-        </div>
-        <div class="datalist">
+  <div class="datalist">
           <el-table
        ref="multipleTable"
        :data="tableData"
@@ -21,6 +7,7 @@
        style="width: 1412px"
        :header-cell-style="{'text-align':'center'}"
        :cell-style="{'text-align':'center','pading-top':'20px'}"
+       :row-style="{height:'100px'}"
        @selection-change="handleSelectionChange">
        <el-table-column
          type="selection"
@@ -29,39 +16,37 @@
        <el-table-column
          prop="number"
          label="序号"
+         width="80">
+       </el-table-column>
+       <el-table-column
+       prop="account"
+         label="举报者账号"
          width="120">
        </el-table-column>
        <el-table-column
-         prop="name"
-         label="角色名称"
+         prop="reportedName"
+         label="被举报用户名"
          width="120">
        </el-table-column>
        <el-table-column
-         prop="describe"
-         label="描述"
-         width="200">
-       </el-table-column>
-       <el-table-column
-         prop="personCount"
-         label="人员数"
+         prop="reportedAccount"
+         label="用户账号"
          width="120">
        </el-table-column>
        <el-table-column
-         prop="addTime"
-         label="添加时间"
-         width="200">
+         prop="reason"
+         label="举报理由"
+         width="300">
        </el-table-column>
        <el-table-column
-         label="是否启用"
-         width="120">
-         <el-switch v-model="value1">
-</el-switch>
+         prop="remark"
+         label="备注"
+         width="300">
        </el-table-column>
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="edit">编辑</el-button>
-         <el-button  type="primary" class="cancel1">删除</el-button>
+         <el-button  type="primary" class="edit">查看详情</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -72,29 +57,27 @@
       </el-pagination>
      </div>
         </div> 
-      </div>
-    </el-main>
-  </el-container>
 </template>
 
 <script>
 export default {
-  name:'role',
+  name:'report',
   data() {
     return {
     value1: true,
     count: 1,
     tableData: [{
           number: 1,
-          name: 'minus',
-          describe: '18559120521',
-          personCount: 10,
-          addTime: '2019-07-04 23:59:59',
+          account: 'dadada1',
+          reportedName: '泰罗奥特曼',
+          reportedAccount: 'tailuo123',
+          reason: '斯特里姆光线残骸花花草草',
+          remark: '贩卖各种怪兽宠物'
         }],
         multipleSelection: []
   }
 },
-    methods: {
+  methods: {
       toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {
@@ -109,39 +92,15 @@ export default {
       }
     }
 }
+
 </script>
 <style lang="scss" scoped>
-.name {
-  display: flex;
-  font-size: 18px;
-  padding-top: 44px;
-  padding-left: 84px;
-  width: 120px;
-  img {
-    height: 24px;
-    width: 24px;
-    padding-right: 12px;
-  }
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  padding-left: 104px;
-  margin-top: 40px;
-  .seek {
-    padding-right: 27px;
-  }
-  .op {
-    display: flex;
-  }
-  .datalist {
-    margin-top: 40px;
+.datalist {
+    margin-top: 32px;
     .page {
       margin-top: 24px;
     }
   }
-}
 
 .el-button--primary {
   width: 96px;
@@ -150,12 +109,9 @@ export default {
   border-radius: 8px;
   border: none;
 }
+
 .edit {
   background-color: #957BF1;
-}
-
-.cancel1 {
-  background-color: #F56C6C;
 }
 
 .el-pagination {

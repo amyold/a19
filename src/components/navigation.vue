@@ -7,36 +7,35 @@
           <img src="@assets/home/paper.png">
           <p>ultraman</p>
       </div>
-      <el-menu-item index="home">
-        <img src="@assets/home/主页.png" alt="">
+      <el-menu-item index="/home">
+        <img src="@assets/home/主页.png">
         <span slot="title">首页</span>
       </el-menu-item>
-       <el-submenu index="authorty">
+       <el-submenu index="/authorty">
           <template slot="title">
-            <img src="@assets/home/权限.png" alt="">
+            <img src="@assets/home/权限.png">
             <span>权限管理</span>
           </template>
-          <el-menu-item index="authority1">
-            <img src="@assets/home/权限列表.png" alt="">
+          <el-menu-item index="/authority1">
+            <img src="@assets/home/权限列表.png">
             <span slot="title">权限人员</span>
             </el-menu-item>
-          <el-menu-item index="authority2">
-           <img src="@assets/home/角色列表.png" alt="">
+          <el-menu-item index="/authority2">
+           <img src="@assets/home/角色列表.png">
             <span slot="title">角色列表</span>
           </el-menu-item>
         </el-submenu>
-      <el-menu-item index="chat">
-              <img src="@assets/home/消息.png" alt="">
+      <el-menu-item index="/chat">
+              <img src="@assets/home/消息.png">
         <span slot="title">消息回复</span>
       </el-menu-item>
-      <el-menu-item index="order">
-           <img src="@assets/home/订单.png" alt="">
+      <el-menu-item index="/order">
+           <img src="@assets/home/订单.png">
 
         <span slot="title">订单管理</span>
       </el-menu-item>
-      <el-menu-item index="user">
-               <img src="@assets/home/商品.png" alt="">
-
+      <el-menu-item index="/user/check">
+               <img src="@assets/home/商品.png">
         <span slot="title">用户管理</span>
       </el-menu-item>
     </el-menu>
