@@ -12,7 +12,6 @@
   <el-dropdown-menu slot="dropdown" >
     <el-dropdown-item><el-checkbox v-model="checked">权限人员</el-checkbox></el-dropdown-item>
     <el-dropdown-item><el-checkbox v-model="checked">角色列表</el-checkbox></el-dropdown-item>
-    <el-dropdown-item><el-checkbox v-model="checked">消息回复</el-checkbox></el-dropdown-item>
         <el-dropdown-item><el-checkbox v-model="checked">订单管理</el-checkbox></el-dropdown-item>
     <el-dropdown-item><el-checkbox v-model="checked">用户管理</el-checkbox></el-dropdown-item>
   </el-dropdown-menu>

@@ -10,8 +10,8 @@
       <div class="about">
         <div class="op">
           <div class="seek"><search/></div>
-          <sort/>
-          <cancel/>
+         <el-button class="btn"> <sort/></el-button>
+         <el-button class="btn"> <cancel/></el-button>
          <el-button class="btn" @click="addrole=true"><add/></el-button>
         </div>
         <div class="datalist">
@@ -194,9 +194,15 @@ export default {
 .edit {
   background-color: #957BF1;
 }
+.edit:hover {
+  background-color: #a38ef4;
+}
 
 .cancel1 {
   background-color: #F56C6C;
+}
+.cancel1:hover {
+  background-color: #f08383;
 }
 
 .el-pagination {

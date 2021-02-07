@@ -7,7 +7,7 @@
       </div>
     </el-header>
     <el-main>
-      <div class="add">
+      <div class="addrole">
         <div class="title">
           <img src="@assets/member/添加.png" alt="">
           <p>添加概述人员</p>
@@ -34,15 +34,15 @@
         </div>
         <div class="op">
           <div class="seek"><search/></div>
-          <sort/>
-          <cancel/>
+          <el-button class="btn"> <sort/></el-button>
+          <el-button class="btn"><cancel/></el-button>
         </div>
         <div class="datalist">
           <el-table
        ref="multipleTable"
        :data="tableData"
        tooltip-effect="dark"
-       style="width: 1412px"
+       style="width:85%"
        :header-cell-style="{'text-align':'center'}"
        :cell-style="{'text-align':'center','pading-top':'20px'}"
        @selection-change="handleSelectionChange">
@@ -53,12 +53,12 @@
        <el-table-column
          prop="number"
          label="序号"
-         width="120">
+         width="50">
        </el-table-column>
        <el-table-column
          prop="name"
          label="姓名"
-         width="120">
+         width="80">
        </el-table-column>
        <el-table-column
          prop="account"
@@ -73,21 +73,22 @@
        <el-table-column
          prop="addTime"
          label="添加时间"
-         width="200">
+         width="160">
        </el-table-column>
        <el-table-column
          prop="lastTime"
          label="最后登录时间"
-         width="200">
+         width="160">
        </el-table-column>
        <el-table-column
          label="是否启用"
-         width="120">
+         width="100">
          <el-switch v-model="value1">
 </el-switch>
        </el-table-column>
        <el-table-column
          label="操作"
+          width="250"
          show-overflow-tooltip>
          <el-button  type="primary" class="edit">编辑</el-button>
          <el-button  type="primary" class="cancel1">删除</el-button>
@@ -107,12 +108,13 @@
   title="单独添加"
   :visible.sync="addpeople"
   width="40%"
+  class="dialog_one"
   >
   <addform/>
-  <span slot="footer" class="dialog-footer">
-    <el-button @click="addpeople = false">取 消</el-button>
+  <div class="dialog-footer">
+    <el-button type="primary" @click="addpeople = false">取 消</el-button>
     <el-button type="primary" @click="addpeople = false">确 定</el-button>
-  </span>
+  </div>
 </el-dialog>
  <el-dialog
   title="批量上传"
@@ -124,10 +126,10 @@
     <img src="@assets/home/上传.png" alt="">
     <span>点击上传</span>
   </div>
-  <span slot="footer" class="dialog-footer">
-    <el-button @click="batchadd = false">取 消</el-button>
+  <div class="dialog-footer">
+    <el-button type="primary" @click="batchadd = false">取 消</el-button>
     <el-button type="primary" @click="batchadd = false">确 定</el-button>
-  </span>
+  </div>
 </el-dialog>
 
     </el-main>
@@ -179,6 +181,13 @@ export default {
 </script>
 <style lang='scss' scoped>
 @import '@style/color.scss';
+.el-header{
+  padding: 0 0;
+}
+.el-main{
+  padding-left: 0;
+  padding-right: 0;
+}
 .name {
   display: flex;
   font-size: 18px;
@@ -192,14 +201,16 @@ export default {
   }
 }
 
-.add {
+.addrole {
   padding-left: 104px;
   .detail {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding-left: 27px;
     padding-right: 329px;
     .box {
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -222,6 +233,10 @@ export default {
         background-color: #957bf1;
         border: none;
       }
+      .el-button--primary:hover{
+        background-color: #a38ef4;
+      }
+
     }
   }
 }
@@ -245,6 +260,13 @@ export default {
   }
   .op {
     display: flex;
+     .btn{
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;
+}
   }
   .datalist {
     margin-top: 24px;
@@ -264,22 +286,51 @@ export default {
 .edit {
   background-color: #957BF1;
 }
-
+.edit:hover{
+  background-color: #a38ef4;
+}
 .cancel1 {
   background-color: #F56C6C;
 }
+.cancel1:hover{
+  background-color: #f08383;
 
+}
 .el-pagination {
-    padding-left: 1200px;
+    padding-left: 60vw;
     padding-top: 20px;
 }
+.dialog_two .dialog-footer,
+.dialog_one .dialog-footer
 
+{
+  margin: 42px 0 18px 0;
+ text-align: center;
+.el-button--primary:nth-child(1){
+  background-color: #F56C6C;
+  margin-right: 130px;
+  &:hover{
+     background-color: #f08383;
+  }
+}
+.el-button--primary:nth-child(2)
+{
+  background-color: #957BF1;
+  &:hover{
+    background-color: #a38ef4;
+  }
+}
+
+}
 .dialog_two .box{
+  margin: 0 auto;
   width: 360px;
   height: 200px;
-  border: dashed 1px #707070;
+  border-radius: 21px;
+border: 1px dashed #707070;
   @include center;
-  flex-direction: column;
+ display: flex;
+ flex-direction: column;
   span{
 color: #b6b6b6;
 font-weight: bold;
@@ -288,6 +339,13 @@ font-size: 20px;
   }
   img{
     width: 85px;
+  }
+}
+@media (max-width: 1126px){
+  .addrole{
+    .detail {
+      padding-right:0;
+    }
   }
 }
 </style>

@@ -10,8 +10,9 @@
       <div class="about">
         <div class="op">
           <div class="seek"><search/></div>
-          <sort/>
-          <cancel/>
+         <el-button class="btn"> <sort/></el-button>
+         <el-button class="btn">          <cancel/>
+</el-button>
         </div>
         <div class="datalist">
           <el-table
@@ -72,16 +73,19 @@
         </div> 
       </div>
        <el-dialog
-  title="编辑"
+  title="反馈内容"
   :visible.sync="more"
-  width="40%"
+  width="45%"
   >
   <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="角色名称" prop="charactname">
-    <el-input v-model="ruleForm.charactname"></el-input>
+  <el-form-item label="号码" prop="number">
+    <el-input v-model="ruleForm.number"></el-input>
   </el-form-item>
   <el-form-item label="描述" prop="description">
     <el-input v-model="ruleForm.description"></el-input>
+  </el-form-item>
+   <el-form-item label="相关资料" prop="detail">
+    <el-input v-model="ruleForm.detail"></el-input>
   </el-form-item>
   </el-form>
   <span slot="footer" class="dialog-footer">
@@ -103,8 +107,9 @@ export default {
     value1: true,
     count: 1,
     ruleForm: {
-          charactername: '',
-          description: '',
+          number: '',
+          descriptiont: '',
+          detail: ''
         },
     tableData: [{
           number: 1,
@@ -157,6 +162,12 @@ export default {
   }
   .op {
     display: flex;
+    .btn{
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;}
   }
   .datalist {
     margin-top: 40px;
@@ -177,6 +188,9 @@ export default {
   background-color: #957BF1;
 }
 
+.check:hover {
+  background-color: #a38ef4;
+}
 .el-pagination {
     padding-left: 1200px;
     padding-top: 20px;

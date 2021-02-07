@@ -25,10 +25,6 @@
             <span slot="title">角色列表</span>
           </el-menu-item>
         </el-submenu>
-      <el-menu-item index="/chat">
-              <img src="@assets/home/消息.png">
-        <span slot="title">消息回复</span>
-      </el-menu-item>
       <el-menu-item index="/order">
            <img src="@assets/home/订单.png">
 

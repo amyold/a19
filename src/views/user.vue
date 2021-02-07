@@ -10,15 +10,18 @@
       <div class="about">
         <div class="op">
           <div class="seek"><search/></div>
-          <sort/>
-          <cancel/>
+         <el-button class="btn"> <sort/></el-button>
+         <el-button class="btn"><cancel/></el-button>
         </div>
         <div class="kind">
-          <button @click="switchTo('/user/check')" class="choose">
+          <button @click="switchTo('/user/check')" class="choose" name='btn'>
             商品审核：1
           </button>
-          <button @click="switchTo('report')" class="choose">
-            被举报：1
+          <button @click="switchTo('report')" class="choose" name='btn'>
+            举报管理：1
+          </button>
+          <button @click="switchTo('administration')" class="choose" name='btn'>
+            商家管理：1
           </button>
         </div>
         <router-view></router-view>
@@ -79,6 +82,12 @@ export default {
   }
   .op {
     display: flex;
+    .btn{
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;}
   }
   .kind {
     display: flex;
@@ -97,6 +106,10 @@ export default {
     line-height: 60px;
     margin-right: 20px;
     border-radius: 8px;
+    }
+    .choose:hover,
+    .choose:focus{
+     color:#616BBE ;
     }
   }
 }

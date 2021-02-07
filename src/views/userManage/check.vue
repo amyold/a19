@@ -46,7 +46,7 @@
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="edit">查看详情</el-button>
+         <el-button  type="primary" class="edit" @click="switchTo('/more')" >查看详情</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -73,7 +73,16 @@ export default {
           bussinessName: '奥特小店',
           bussinessAccount: 'automan123',
           bussinessScope: '贩卖各种怪兽宠物'
-        }],
+        },
+        {
+          number: 2,
+          productPic: '我是图片(待修改)',
+          productName: '18559120521',
+          bussinessName: '奥特小店',
+          bussinessAccount: 'automan123',
+          bussinessScope: '贩卖各种怪兽宠物'
+        }
+        ],
         multipleSelection: []
   }
 },
@@ -89,6 +98,11 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+       switchTo(path) {
+        console.log("hello");
+        console.log(path);
+        this.$router.push(path)
       }
     }
 }
@@ -113,6 +127,10 @@ export default {
 .edit {
   background-color: #957BF1;
 }
+.edit:hover{
+background-color: #a38ef4;
+}
+
 
 .el-pagination {
     padding-left: 1200px;

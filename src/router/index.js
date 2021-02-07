@@ -14,7 +14,9 @@ const router = new VueRouter({
     {path:'/authority1',component: () => import('@views/authority.vue')},
     {path:'/authority2',component: () => import('@views/role.vue')},
     {path:'/order',component: () => import('@views/order.vue')},
-    {path:'/chat',component: () => import('@views/chat.vue')},
+    {path:'/order',component: () => import('@views/order.vue')},
+    {path:'/order',component: () => import('@views/order.vue')},
+    {path:'/more',component: () => import('@views/userManage/more.vue')},
     {path:'/user',component: () => import('@views/user.vue'),
       children: [
         {
@@ -23,6 +25,9 @@ const router = new VueRouter({
         {
           path:'report',component: () => import('@views/userManage/report.vue')
         },
+        {
+          path:'administration',component: () => import('@views/userManage/administration.vue')
+        }
       ]
     },
   ]

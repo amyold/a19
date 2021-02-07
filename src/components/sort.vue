@@ -28,6 +28,6 @@ export default {
 }
 
 .sort:hover{
-    background-color: #333;
+    background-color: #21d8d8
 }
 </style>

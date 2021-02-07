@@ -26,4 +26,8 @@ export default {
         height: 25px;
     }
 }
+.add:hover{
+        background-color: #8cbcf7;
+
+}
 </style>

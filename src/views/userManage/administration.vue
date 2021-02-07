@@ -20,33 +20,28 @@
        </el-table-column>
        <el-table-column
        prop="account"
-         label="举报者账号"
+         label="商家账号"
+         width="180">
+       </el-table-column>
+       <el-table-column
+         prop="name"
+         label="店铺名称"
          width="120">
        </el-table-column>
        <el-table-column
-         prop="reportedName"
-         label="被举报用户名"
+         prop="contact"
+         label="联系方式"
          width="120">
        </el-table-column>
        <el-table-column
-         prop="reportedAccount"
-         label="用户账号"
+         prop="business"
+         label="主营业务"
          width="120">
-       </el-table-column>
-       <el-table-column
-         prop="reason"
-         label="举报理由"
-         width="300">
-       </el-table-column>
-       <el-table-column
-         prop="remark"
-         label="备注"
-         width="300">
        </el-table-column>
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="edit">查看详情</el-button>
+         <el-button  type="primary" class="edit">管理</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -61,27 +56,26 @@
 
 <script>
 export default {
-  name:'report',
+  name:'check',
   data() {
     return {
     value1: true,
     count: 1,
     tableData: [{
           number: 1,
-          account: 'dadada1',
-          reportedName: '泰罗奥特曼',
-          reportedAccount: 'tailuo123',
-          reason: '斯特里姆光线残骸花花草草',
-          remark: '贩卖各种怪兽宠物'
+          account: '10086',
+          name: '奥特小店',
+          contact: '18559120521',
+          business: 'automan123',
         },
         {
           number: 1,
-          account: 'dadada1',
-          reportedName: '泰罗奥特曼',
-          reportedAccount: 'tailuo123',
-          reason: '斯特里姆光线残骸花花草草',
-          remark: '贩卖各种怪兽宠物'
-        }],
+          account: '10086',
+          name: '奥特小店',
+          contact: '18559120521',
+          business: 'automan123',
+        }
+        ],
         multipleSelection: []
   }
 },
@@ -97,6 +91,11 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+       switchTo(path) {
+        console.log("hello");
+        console.log(path);
+        this.$router.push(path)
       }
     }
 }
@@ -121,6 +120,10 @@ export default {
 .edit {
   background-color: #957BF1;
 }
+.edit:hover{
+background-color: #a38ef4;
+}
+
 
 .el-pagination {
     padding-left: 1200px;

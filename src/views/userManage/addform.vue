@@ -16,7 +16,8 @@
     <el-input v-model="ruleForm.email"></el-input>
   </el-form-item>
   <el-form-item label="备注" prop="remark">
-    <el-input v-model="ruleForm.remark"></el-input>
+    <el-input type="textarea"
+  :autosize="{ minRows:6, maxRows: 10}"  v-model="ruleForm.remark"></el-input>
   </el-form-item>
   </el-form>
 </template>

@@ -26,4 +26,7 @@ export default {
         height: 25px;
     }
 }
+.cancel:hover{
+    background-color: #f09f9f;
+}
 </style>
