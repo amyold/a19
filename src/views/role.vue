@@ -30,7 +30,7 @@
        <el-table-column
          prop="number"
          label="序号"
-         width="120">
+         width="50">
        </el-table-column>
        <el-table-column
          prop="name"
@@ -45,22 +45,23 @@
        <el-table-column
          prop="personCount"
          label="人员数"
-         width="120">
+         width="80">
        </el-table-column>
        <el-table-column
          prop="addTime"
          label="添加时间"
-         width="200">
+         width="160">
        </el-table-column>
        <el-table-column
          label="是否启用"
-         width="120">
+         width="100">
          <el-switch v-model="value1">
 </el-switch>
        </el-table-column>
        <el-table-column
          label="操作"
-         show-overflow-tooltip>
+         show-overflow-tooltip
+       >
          <el-button  type="primary" class="edit" @click="edit=true">编辑</el-button>
          <el-button  type="primary" class="cancel1">删除</el-button>
        </el-table-column>

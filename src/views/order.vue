@@ -30,22 +30,22 @@
        <el-table-column
          prop="number"
          label="序号"
-         width="100">
+         width="80">
        </el-table-column>
        <el-table-column
          prop="orderNumber"
          label="订单编号"
-         width="100">
+         width="120">
        </el-table-column>
        <el-table-column
          prop="orderStatus"
          label="订单状态"
-         width="100">
+         width="120">
        </el-table-column>
        <el-table-column
          prop="deliveryStatus"
          label="物流状态"
-         width="100">
+         width="120">
        </el-table-column>
        <el-table-column
          prop="feedback"
@@ -55,7 +55,7 @@
        <el-table-column
          prop="remark"
          label="备注"
-         width="300">
+         width="100">
        </el-table-column>
        <el-table-column
          label="操作"
@@ -77,7 +77,7 @@
   :visible.sync="more"
   width="45%"
   >
-  <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+  <el-form :model="ruleForm"  ref="ruleForm" label-width="100px" class="demo-ruleForm">
   <el-form-item label="号码" prop="number">
     <el-input v-model="ruleForm.number"></el-input>
   </el-form-item>

@@ -42,7 +42,7 @@
        ref="multipleTable"
        :data="tableData"
        tooltip-effect="dark"
-       style="width:85%"
+       style="width:1412px"
        :header-cell-style="{'text-align':'center'}"
        :cell-style="{'text-align':'center','pading-top':'20px'}"
        @selection-change="handleSelectionChange">
@@ -58,12 +58,12 @@
        <el-table-column
          prop="name"
          label="姓名"
-         width="80">
+         width="100">
        </el-table-column>
        <el-table-column
          prop="account"
          label="账号"
-         width="120">
+         width="180">
        </el-table-column>
        <el-table-column
          prop="email"
@@ -73,12 +73,12 @@
        <el-table-column
          prop="addTime"
          label="添加时间"
-         width="160">
+         width="180">
        </el-table-column>
        <el-table-column
          prop="lastTime"
          label="最后登录时间"
-         width="160">
+         width="180">
        </el-table-column>
        <el-table-column
          label="是否启用"
@@ -88,7 +88,6 @@
        </el-table-column>
        <el-table-column
          label="操作"
-          width="250"
          show-overflow-tooltip>
          <el-button  type="primary" class="edit">编辑</el-button>
          <el-button  type="primary" class="cancel1">删除</el-button>
@@ -148,6 +147,7 @@ export default {
 },
   data() {
   return {
+      screenWidth: document.body.clientWidth,
     addpeople:false,
     batchadd:false,
     value1: true,
@@ -176,7 +176,23 @@ export default {
       handleSelectionChange(val) {
         this.multipleSelection = val;
       }
+    },
+     mounted() {
+    const that = this
+    window.onresize = () => {
+      return (() => {
+        window.screenWidth = document.body.clientWidth
+        that.screenWidth = window.screenWidth
+        console.log(that.screenWidth)
+        if (that.screenWidth < 993) {
+          that.topImgShow = false
+        } else {
+          that.topImgShow = true
+        }
+      })()
     }
+  },
+
 }
 </script>
 <style lang='scss' scoped>
@@ -206,7 +222,6 @@ export default {
   .detail {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding-left: 27px;
     padding-right: 329px;
     .box {
@@ -233,6 +248,7 @@ export default {
         background-color: #957bf1;
         border: none;
       }
+      
       .el-button--primary:hover{
         background-color: #a38ef4;
       }
@@ -341,11 +357,5 @@ font-size: 20px;
     width: 85px;
   }
 }
-@media (max-width: 1126px){
-  .addrole{
-    .detail {
-      padding-right:0;
-    }
-  }
-}
+
 </style>
