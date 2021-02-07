@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <navigation/>
+      <merchantaside/>
       <router-view></router-view>
     </el-container>
     
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import navigation from '@components/navigation.vue'
+import merchantaside from './components/merchantaside.vue'
 export default {
     name:'app',
     components: {
-      navigation
+        merchantaside
     }
 }
 </script>
