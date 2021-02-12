@@ -28,7 +28,7 @@
       <el-menu-item index="/order">
            <img src="@assets/home/订单.png">
 
-        <span slot="title">订单管理</span>
+        <span slot="title">订单纠纷</span>
       </el-menu-item>
       <el-menu-item index="/user/check">
                <img src="@assets/home/商品.png">

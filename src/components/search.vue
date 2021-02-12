@@ -2,6 +2,8 @@
  <el-input
   placeholder="请输入内容"
   v-model="input"
+  @input="changeText"
+  @change="search"
   prefix-icon="el-icon-search"
   clearable
   class="first">
@@ -15,6 +17,24 @@ export default {
     return {
       input: ''
     }
+  },
+ methods:{
+   changeText()
+   {
+     this.$emit("changeText",this.input)
+   },
+   search()
+   {
+     this.$emit("search")
+   }
+ },
+ props:{
+  searchText:{
+   type:String
+  }
+ },
+ created() {
+   this.input= this.searchText
   }
 }
 </script>
@@ -23,6 +43,7 @@ export default {
 .first /deep/.el-input__inner {
   line-height: 64px;
   height: 64px;
+  outline: none;
   width: 56vw;
   border-radius: 32px;
   padding-left: 72px;
