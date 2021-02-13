@@ -101,13 +101,17 @@
               <el-form-item label="商家票数" prop="merchantVote">
                   <el-input v-model="formObject.merchantVote"></el-input>
               </el-form-item>
-              <el-form-item label="商家票数" prop="memberVote">
+              <el-form-item label="用户票数" prop="memberVote">
                   <el-input v-model="formObject.memberVote"></el-input>
               </el-form-item>
               <el-form-item label="最终结果" prop="result" v-show="formObject.result>=0">
                   <span>{{formObject.result==0?'支持用户':'支持商家'}}</span>
               </el-form-item>
           </el-form>
+           <div class="dialog-footer" v-show="formObject.result<0">
+               <el-button type="primary" @click="handlePutConfirm(0)">支持用户</el-button>
+               <el-button type="primary" @click="handlePutConfirm(1)">支持商家</el-button>
+           </div>
         </el-dialog>
     </el-main>
     
@@ -185,63 +189,19 @@ export default {
             this.addpeople=true
         },
         /**
-         * 增加(通用)
+         * 审判
          * @param index
          * @returns {Promise<void>}
          */
-        async handlePutConfirm()
+        async handlePutConfirm(type)
         {
-            this.formObject.status = (this.isUse===true?1:0);
-            if(this.formType===0)
-            {
-                await this.$api.Admin.addHmsAdminUsingPUT(this.formObject).then(res=>{
-                    var code = res.code;
-                    if(code===200)
-                    {
-                        this.closeForm();
-                        this.getList(0);
-                        this.$api.util.showMessage('success','添加成功');
-                    }
-                    else
-                    {
-                        this.$api.util.showMessage('error',res.message);
-                    }
-                })
-            }else
-            {
-                await this.$api.Admin.updateHmsAdminUsingPOST(this.formObject).then(res=>{
-                    var code = res.code;
-                    if(code===200)
-                    {
-                        this.closeForm();
-                        this.getList(0);
-                        this.$api.util.showMessage('success','编辑成功');
-                    }
-                    else
-                    {
-                        this.$api.util.showMessage('error',res.message);
-                    }
-                })
-            }
-        },
-        /**
-         * 删除(通用)
-         * @param row
-         * @returns {Promise<void>}
-         */
-        async handleDelete(row)
-        {
-            await this.$api.Admin.deleteHmsAdminUsingDELETE(row.id).then(res=>{
-                if(res.code===200)
-                {
-                    this.getList(0);
-                    this.$api.util.showMessage('success','删除成功');
-                }
-                else
-                {
-                    this.$api.util.showMessage('error',res.message);
-                }
-            })
+           let object={
+               id:this.formObject.id,
+               result:type
+           }
+           await this.$api.OrderDisputeItem.updateHmsDisputeOrderItemUsingPOST(object).then(res=>{
+               this.closeForm();
+           })
         },
         /**
          * 打开表单(通用)
@@ -263,6 +223,7 @@ export default {
                 this.$api.OrderDisputeItem.getHmsDisputeOrderItemUsingGET(row.id).then(res=>{
                     console.log(res.data)
                     this.formObject=res.data
+                    this.formObject.id=row.id
                     this.formVisible= true;
                 })
             }

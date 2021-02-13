@@ -16,24 +16,31 @@
             <img src="@assets/home/权限.png">
             <span>权限管理</span>
           </template>
-          <el-menu-item index="/authority1">
+          <el-menu-item index="/admin">
             <img src="@assets/home/权限列表.png">
             <span slot="title">权限人员</span>
             </el-menu-item>
-          <el-menu-item index="/authority2">
+          <el-menu-item index="/role">
            <img src="@assets/home/角色列表.png">
             <span slot="title">角色列表</span>
           </el-menu-item>
         </el-submenu>
+
       <el-menu-item index="/order">
            <img src="@assets/home/订单.png">
-
         <span slot="title">订单纠纷</span>
       </el-menu-item>
+
       <el-menu-item index="/user/check">
                <img src="@assets/home/商品.png">
         <span slot="title">用户管理</span>
       </el-menu-item>
+
+        <el-menu-item index="/merchant">
+            <img src="@assets/home/商品.png">
+            <span slot="title">商家管理</span>
+        </el-menu-item>
+
     </el-menu>
 </template>
 

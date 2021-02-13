@@ -11,10 +11,8 @@ VueRouter.prototype.push = function push(location) {
 const router = new VueRouter({
   routes:[
     {path:'/home',component: () => import('@views/home.vue')},
-    {path:'/authority1',component: () => import('@views/authority.vue')},
-    {path:'/authority2',component: () => import('@views/role.vue')},
-    {path:'/order',component: () => import('@views/order.vue')},
-    {path:'/order',component: () => import('@views/order.vue')},
+    {path:'/admin',component: () => import('@views/authority.vue')},
+    {path:'/role',component: () => import('@views/role.vue')},
     {path:'/order',component: () => import('@views/order.vue')},
     {path:'/more',component: () => import('@views/userManage/more.vue')},
     {path:'/user',component: () => import('@views/user.vue'),
@@ -24,12 +22,12 @@ const router = new VueRouter({
         },
         {
           path:'report',component: () => import('@views/userManage/report.vue')
-        },
-        {
-          path:'administration',component: () => import('@views/userManage/administration.vue')
         }
       ]
     },
+    {
+      path: '/merchant',component:()=>import("@views/merchant.vue")
+    }
   ]
 })
 
