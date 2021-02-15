@@ -35,6 +35,17 @@ const router = new VueRouter({
     {path:'/OrderList',component: () => import('@views/merchant/OrderList.vue')},
     {path:'/OrderManage',component: () => import('@views/merchant/OrderManage.vue')},
     {path:'/sendback',component: () => import('@views/merchant/sendback.vue')},
+    {path:'/orderfirst',component: () => import('@views/order/first.vue')},
+    {path:'/ordersecond',component: () => import('@views/order/second.vue')},
+    {path:'/orderthree',component: () => import('@views/order/three.vue')},
+    {path:'/orderfour',component: () => import('@views/order/four.vue')},
+    {path:'/orderfifth',component: () => import('@views/order/fifth.vue')},
+
+
+
+
+
+
 
 
 
