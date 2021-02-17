@@ -140,24 +140,40 @@
         </div>
       </el-row>
       <el-row v-if="this.step === 2" class="box" :span="24">
+        <item-detail :title="form.title"
+                     :album='["https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg", "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"]'
+                     :desc="form.description"
+                     :price="form.price"
+                     :rent-price="form.rentPrice"
+                     :category="form.category.split(',')"
+                     :rent-time-from="form.rentTimeFrom"
+                     :rent-time-to="form.rentTimeTo"
+                     :stock="form.stock"
+                     :details="form.details"
+                     :photos="['https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg', 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg']"
+                     :deposit="form.deposit"
+                     :support-buy-after-rent="form.supportRentBeforeBuy"
+                     :support-lease-renewal="form.supportLeaseRenewal"
+                     :host-station="form.hostStation"
+                     :src-addr="form.srcAddr"
+        ></item-detail>
         <div style="display: flex;justify-content: center">
           <el-button @click="step = 1">返回上一层</el-button>
-          <el-button type="primary" @click="next3">下一步</el-button>
+          <el-button type="primary" @click="next3">上传</el-button>
         </div>
       </el-row>
       <el-row v-if="this.step === 3" class="box" :span="24">
-        <div style="display: flex;justify-content: center">
-          <el-button @click="step = 2">返回上一层</el-button>
-          <el-button type="primary" @click="upload">上传</el-button>
-        </div>
       </el-row>
     </el-main>
   </el-container>
 </template>
 
 <script>
+import ItemDetail from "@components/itemDetail";
+
 export default {
   name: 'commodity3',
+  components: {ItemDetail},
   data() {
     return {
       step: 0,
