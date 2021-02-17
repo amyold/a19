@@ -3,7 +3,7 @@
     <el-col :span="4">
       <el-carousel indicator-position="outside" height="120px">
         <el-carousel-item v-for="img in album" :key="img">
-          <el-image :src="img" :preview-src-list="[img]">
+          <el-image :src="img" :preview-src-list="album">
           </el-image>
         </el-carousel-item>
       </el-carousel>
@@ -38,11 +38,9 @@
         <el-col class="label" :span="3">分类</el-col>
         <el-col :span="21">
           <el-row type="flex" :gutter="20">
-            <el-col v-for="cat in category" :key="cat">
-              <el-card shadow="hover">
-                {{ cat }}
-              </el-card>
-            </el-col>
+            <el-card v-for="cat in category" :key="cat" shadow="hover" style="display: inline-block; margin-right: 8px">
+              {{ cat }}
+            </el-card>
           </el-row>
         </el-col>
       </el-row>
@@ -58,7 +56,7 @@
                     :src="p"
                     fit="fit"
                     style="width: 40px; height: 40px;margin-right: 8px"
-                    :preview-src-list="[p]"></el-image>
+                    :preview-src-list="photos"></el-image>
         </el-col>
       </el-row>
       <el-row class="entry">
