@@ -87,7 +87,7 @@
 
 <script>
 export default {
-  name: "itemDetail",
+  name: "ItemDetail",
   props: ["title", "desc", "price", "rentPrice", "category", "rentTimeFrom", "rentTimeTo", "details",
     "stock", "album", "photos", "deposit", "supportBuyAfterRent", "supportLeaseRenewal", "hostStation", "srcAddr"]
 }
