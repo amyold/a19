@@ -1,4 +1,5 @@
 <template>
+<!--订单列表 -->
   <el-container>
     <el-header>
       <div class="name">
@@ -69,8 +70,8 @@
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="edit" @click="switchTo('/orderfirst')">查看详情</el-button>
-         <el-button  type="primary" class="cancel1">删除订单</el-button>
+         <el-button  type="primary" class="edit" @click="switchTo('/SubmitOrder')">查看详情</el-button>
+         <el-button  type="primary" class="cancel1" @click.native.prevent="deleteRow(scope.$index, tableData)" >删除订单</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -90,23 +91,7 @@
 <script>
 export default {
 name:'',
- data() {
-    return {
-       count: 1,
-    tableData: [{
-          number: 1,
-         OrderNumber: 'DDDDD009',
-          submission: '2019-07-04 23:59:59',
-          status: '已支付',
-         account: 'minus',
-         OrderStatus:'已发货',
-         OrderAmount:'19.9￥',
-         DeliverStatus:'运输中',
-        }],
-        multipleSelection: []
-  }
-},
-methods: {
+  methods: {
   toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {
@@ -119,11 +104,43 @@ methods: {
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
-  switchTo(path) {
+
+      switchTo(path) {
         console.log("hello");
         console.log(path);
         this.$router.push(path)
+      },
+      
+       deleteRow(index, rows) {
+        rows.splice(index, 1);
       }
+}
+,
+ data() {
+    return {
+       count: 1,
+    tableData: [{
+          number: 1,
+         OrderNumber: 'DDDDD009',
+          submission: '2019-07-04 23:59:59',
+          status: '已支付',
+         account: 'minus',
+         OrderStatus:'已发货',
+         OrderAmount:'19.9￥',
+         DeliverStatus:'运输中',
+        },
+        {
+          number: 1,
+         OrderNumber: 'DDDDD009',
+          submission: '2019-07-04 23:59:59',
+          status: '已支付',
+         account: 'minus',
+         OrderStatus:'已发货',
+         OrderAmount:'19.9￥',
+         DeliverStatus:'运输中',
+        }],
+        multipleSelection: []
+  }
 }
 
 }

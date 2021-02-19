@@ -8,7 +8,7 @@
 </el-breadcrumb>
       </div>
     <el-card class="box-card BoxOne">
-  <el-steps :active="2" align-center>
+  <el-steps :active="5" align-center>
   <el-step title="提交订单"></el-step>
   <el-step title="支付订单"></el-step>
   <el-step title="平台发货"></el-step>
@@ -22,12 +22,10 @@
    <div class="content">
      <div class="left">
     <img src="@assets/home/备货单.png" alt="">
-    <span>当前订单状态：未发货</span>
+    <span>当前订单状态：已收货</span>
   </div>
   <div class="right">
-      <el-button type="primary" class="btn" @click="dialogVisible = true">点击发货</el-button>
-      <el-button type="primary" class="btn" @click="edit = true">修改收货人信息</el-button>
-      <el-button type="primary" class="btn" >删除订单</el-button>
+      <el-button type="primary" class="btn">订单跟踪</el-button>
        </div>
    </div>
   </el-card>
@@ -35,23 +33,23 @@
   <img src="@assets/home/收货人.png" alt="">
   <span>收货人信息</span>
   </div>
-  <el-card class="box-card BoxThree">
+ <el-card class="box-card BoxThree">
    <div class="con">
       <div class="content">
-      <span>收货人姓名</span>
-      <span>{{Information.name}}</span>
+      <span>申请人账户名</span>
+      <span>{{Information.account}}</span>
     </div>
     <div class="content">
-      <span>收货人电话</span>
-      <span>{{Information.telephone}}</span>
-    </div>
-    <div class="content">
-      <span>收货地址</span>
-      <span>{{Information.address}}</span>
-    </div>
-    <div class="content">
-      <span>邮政编码</span>
+      <span>订单编号</span>
       <span>{{Information.code}}</span>
+    </div>
+    <div class="content">
+      <span>退换货理由</span>
+      <span>{{Information.reason}}</span>
+    </div>
+    <div class="content">
+      <span>备注</span>
+      <span>{{Information.remark}}</span>
     </div>
    </div>
   </el-card>
@@ -60,56 +58,69 @@
   <span>商品信息</span>
   </div>
   <el-table
-    :data="tableData"
-    style="width: 1320px"
-       class="table">
-    <el-table-column
-      fixed
-       prop="pic"
-      label="商品图片"
-      width="150">
-    </el-table-column>
-    <el-table-column
-      prop="number"
-      label="商品编号/商品名"
-      width="90">
-    </el-table-column>
-    <el-table-column
-      prop="price"
-      label="商品价格"
-      width="100">
-    </el-table-column>
-    <el-table-column
-      prop="type"
-      label="租/买"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="attribute"
-      label="商品属性"
-      width="300">
-    </el-table-column>
-    <el-table-column
-      prop="amount"
-      label="数量"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="calculate"
-      label="小计"
-      width="120">
+      :data="tableData"
+      style="width: 1320px"
+      class="table"
+      show-summary>
+      <el-table-column label="商品图片" width="120">
+        <template slot-scope="scope" >
+          <el-image :src="scope.row.picture"></el-image>
+        </template>
+      </el-table-column>
+      <el-table-column label="商品编号/商品名">
+        <template slot-scope="scope">
+          {{ scope.row.number }}/{{ scope.row.name }}
+        </template>
+      </el-table-column>
+      <el-table-column label="商品价格">
+        <template slot-scope="scope">
+          <el-row>
+            <img style="height: 1em; width: 1em;" src="@assets/commodity3/sell.png" alt="价格">
+            <span>￥{{ scope.row.price }}</span>
+          </el-row>
+          <el-row>
+            <img style="height: 1em; width: 1em;" src="@assets/commodity3/rent.png" alt="租金">
+            <span>￥{{ scope.row.rentPrice }}/天</span>
+          </el-row>
+        </template>
       </el-table-column>
       <el-table-column
-      prop="remark"
-      label="备注"
-      width="120">
-    </el-table-column>
-  </el-table>
-  <div class="all ">
-    <span>共 件</span>
-    <span>合计</span>
-    <span> 元</span>
-  </div>
+        prop="type"
+        label="租/买"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="daynumber"
+        label="天数"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="attribute"
+        label="商品属性"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="amount"
+        label="数量"
+        >
+      </el-table-column>
+      <el-table-column
+        label="小计"
+       >
+       <template  slot-scope="scope">
+         {{
+           scope.row.type=='租'?
+           scope.row.rentPrice*scope.row.daynumber*scope.row.amount:scope.row.price*scope.row.amount
+           }}
+        </template>
+        </el-table-column>
+        <el-table-column
+        prop="remark"
+        label="备注"
+        >
+      </el-table-column>
+    </el-table>
+  
   <div class="heading">
     <div class="subheading ">
   <img src="@assets/home/操作.png" alt="">
@@ -117,7 +128,7 @@
   </div>
     <el-button type="primary" class="btn" @click="remark=true">备注订单</el-button>
   </div>
-   <el-card class="box-card BoxThree Box">
+    <el-card class="box-card BoxThree Box">
    <div class="con">
       <div class="content">
       <span>操作账号</span>
@@ -140,55 +151,11 @@
      <span>N/A</span>
    </div>
   </el-card>
-  <!-- 点击发货 -->
-  <el-dialog
-  title="运单信息编写"
-  :visible.sync="dialogVisible"
-  width="45%"
-  :before-close="handleClose"
-  class="dialog">
-  <span class="cin">
-      <span>运单号</span>
-      <el-input
-  placeholder="请输入内容"
-  v-model="input"
-  clearable>
-</el-input>
-    </span>
-  <span slot="footer" class="dialog-footer">
-    <el-button type="primary" @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-  </span>
-</el-dialog>
-<!-- 修改收货人信息 -->
- <el-dialog
-  title="修改收货人信息"
-  :visible.sync="edit"
-  width="45%"
-  :before-close="handleClose"
-  class="dialog">
- <span>
-     <el-form ref="form" :model="Information" label-width="80px">
-  <el-form-item label="收货人姓名">
-    <el-input v-model="Information.name"></el-input>
-  </el-form-item>
-  <el-form-item label="收货人电话号码">
-    <el-input v-model="Information.telephone"></el-input>
-  </el-form-item>
-  <el-form-item label="收货地址">
-    <el-input v-model="Information.address"></el-input>
-  </el-form-item>
-  <el-form-item label="邮政编码">
-    <el-input v-model="Information.code"></el-input>
-  </el-form-item>
-     </el-form>
- </span>
-  <span slot="footer" class="dialog-footer">
-    <el-button type="primary" @click="edit = false">取 消</el-button>
-    <el-button type="primary" @click="edit = false">确 定</el-button>
-  </span>
-</el-dialog>
-<!-- 备注订单 -->
+   <div class="button">
+      <el-button type="primary" class="btn" @click="refuseback=true">退回申请</el-button>
+      <el-button type="primary" class="btn" @click="switchTo('/sendback') ">同意申请</el-button>
+  </div>
+  <!-- 备注订单 -->
  <el-dialog
   title="备注订单"
   :visible.sync="remark"
@@ -206,7 +173,27 @@
     <el-button type="primary" @click="remark= false">确 定</el-button>
   </span>
 </el-dialog>
-
+<!-- 退回申请 -->
+<el-dialog
+  title="退回申请"
+  :visible.sync="refuseback"
+  width="45%"
+  :before-close="handleClose">
+  <span>
+   <el-form ref="reback" :model="reback" label-width="80px">
+    <el-form-item label="理由">
+    <el-input v-model="reback.reason" ></el-input>
+      </el-form-item>
+    <el-form-item label="备注">
+    <el-input v-model="reback.remark" type="textarea" :autosize="{ minRows:3, qmaxRows:8}"></el-input>
+    </el-form-item>
+    </el-form>
+  </span>
+  <span slot="footer" class="dialog-footer">
+      <el-button type="primary" @click="refuseback= false">取 消</el-button>
+    <el-button type="primary" @click="refuseback=false">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
@@ -219,34 +206,56 @@ data () {
     form:{
       remark:''
     },
-      input:'',
-      input2:'',
-      dialogVisible:false,
-      edit:false,
-    // 收货人信息的类
-    Information:{
-      name:'迪迦奥特曼',
-      telephone:'10086',
-      address:'银河系奥特曼村',
-      code:'123456'
+    refuseback:false,
+    reback:{
+      reason:'',
+      remark:''
     },
-   tableData: [{
+    // 收货人信息的类
+   Information:{
+      account:'迪迦奥特曼',
+      code:'10086100086',
+      reason:'不想要了不想要了',
+      remark:'auto'
+    },
+   tableData: [
+        {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
           number: 'A-10086',
+          name:'超级马里奥',
           price: '289',
-         type: '租',
-         attribute: '豪华版',
-         amount:1,
-         remark:'这是一个备注'
+          rentPrice: 514,
+          type: '租',
+          daynumber:1,
+          attribute: '豪华版',
+          amount:1,
+          remark:'这是一个备注',
         },
         {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
           number: 'A-10086',
+          name:'超级马里奥',
           price: '289',
-         type: '租',
-         attribute: '豪华版',
-         amount:1,
-         remark:'这是一个备注'
-        }],
-  
+          rentPrice: 514,
+          type: '买',
+          daynumber:0,
+          attribute: '豪华版',
+          amount:1,
+          remark:'这是一个备注'
+        },
+        {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          number: 'A-10086',
+          name:'超级马里奥',
+          price: '289',
+          rentPrice: 514,
+          type: '租',
+          daynumber:10,
+          attribute: '豪华版',
+          amount:2,
+          remark:'这是一个备注'
+        }
+        ]
     
   }
 },
@@ -315,7 +324,7 @@ img {
       width: 21px;
     }
     span{
-      color: #F56C6C;
+      color: #8CC1FF;
       margin-left: 10px;
       font-size: 14px;
     }
@@ -324,9 +333,6 @@ img {
     .btn:nth-child(2){
       background-color: #957BF1;
       margin-left: 15px;
-      &:hover{
-        background-color: #ab94fd;
-      }
     }
     .btn:nth-child(3){
       background-color: #F56C6C;
@@ -417,7 +423,7 @@ font-weight: bold;
   }
 }
 .Box{
-  height: 115px;
+  height: 150px;
   .NA{
     margin: 0 auto;
     width: 45px;
@@ -430,38 +436,7 @@ font-weight: bold;
     }
   }
 }
-.dialog:nth-child(1){
-    border-radius: 20px;
-    .cin{
-        margin-left: 61px;
-        display: flex;
-        align-items: center;
-        span{
-            width: 50px;
-            margin-right: 25px;
-        }
-    
-}}
-.cin /deep/ .el-input__inner
-    {
-        width: 204px;
-        height: 29px;
-        border-radius: 15px;
-        
-
-    }
-.dialog:nth-child(2){
-    border-radius: 20px;
-    .cin{
-        margin-left: 61px;
-        display: flex;
-        align-items: center;
-        span{
-            width:100%;
-            margin-right: 25px;
-        }
-    
-}}
+// 弹出框按钮
 .dialog-footer
 {
   margin: 25px 0 14px 0;
@@ -486,4 +461,21 @@ font-weight: bold;
     background-color: #a38ef4;
   }
 }}
+.button{
+  margin: 48px 0 28px 0;
+  text-align: center;
+  .btn:nth-child(1){
+ background-color: #F56C6C;
+ margin-right: 98px;
+  &:hover{
+     background-color: #f08383;
+  }
+   }
+   .btn:nth-child(2){
+  background-color: #957BF1;
+  &:hover{
+    background-color: #a38ef4;
+  }
+   }
+}
 </style>

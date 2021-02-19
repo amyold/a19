@@ -1,4 +1,6 @@
+// 确认收货
 <template>
+
   <div>
     <div class="name">
                   <img src="@assets/home/菜单.png">
@@ -8,7 +10,7 @@
 </el-breadcrumb>
       </div>
     <el-card class="box-card BoxOne">
-  <el-steps :active="1" align-center>
+  <el-steps :active="4" align-center>
   <el-step title="提交订单"></el-step>
   <el-step title="支付订单"></el-step>
   <el-step title="平台发货"></el-step>
@@ -22,10 +24,10 @@
    <div class="content">
      <div class="left">
     <img src="@assets/home/备货单.png" alt="">
-    <span>当前订单状态：未支付</span>
+    <span>当前订单状态：已确定发货</span>
   </div>
   <div class="right">
-      <span>支付窗口还有<span>12min </span>关闭</span>
+      <el-button type="primary" class="btn">订单跟踪</el-button>
        </div>
    </div>
   </el-card>
@@ -58,62 +60,75 @@
   <span>商品信息</span>
   </div>
   <el-table
-    :data="tableData"
-    style="width: 1320px"
-       class="table">
-    <el-table-column
-      fixed
-       prop="pic"
-      label="商品图片"
-      width="150">
-    </el-table-column>
-    <el-table-column
-      prop="number"
-      label="商品编号/商品名"
-      width="90">
-    </el-table-column>
-    <el-table-column
-      prop="price"
-      label="商品价格"
-      width="100">
-    </el-table-column>
-    <el-table-column
-      prop="type"
-      label="租/买"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="attribute"
-      label="商品属性"
-      width="300">
-    </el-table-column>
-    <el-table-column
-      prop="amount"
-      label="数量"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="calculate"
-      label="小计"
-      width="120">
+      :data="tableData"
+      style="width: 1320px"
+      class="table"
+      show-summary>
+      <el-table-column label="商品图片" width="120">
+        <template slot-scope="scope" >
+          <el-image :src="scope.row.picture"></el-image>
+        </template>
+      </el-table-column>
+      <el-table-column label="商品编号/商品名">
+        <template slot-scope="scope">
+          {{ scope.row.number }}/{{ scope.row.name }}
+        </template>
+      </el-table-column>
+      <el-table-column label="商品价格">
+        <template slot-scope="scope">
+          <el-row>
+            <img style="height: 1em; width: 1em;" src="@assets/commodity3/sell.png" alt="价格">
+            <span>￥{{ scope.row.price }}</span>
+          </el-row>
+          <el-row>
+            <img style="height: 1em; width: 1em;" src="@assets/commodity3/rent.png" alt="租金">
+            <span>￥{{ scope.row.rentPrice }}/天</span>
+          </el-row>
+        </template>
       </el-table-column>
       <el-table-column
-      prop="remark"
-      label="备注"
-      width="120">
-    </el-table-column>
-  </el-table>
-  <div class="all ">
-    <span>共 件</span>
-    <span>合计</span>
-    <span> 元</span>
-  </div>
+        prop="type"
+        label="租/买"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="daynumber"
+        label="天数"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="attribute"
+        label="商品属性"
+       >
+      </el-table-column>
+      <el-table-column
+        prop="amount"
+        label="数量"
+        >
+      </el-table-column>
+      <el-table-column
+        label="小计"
+       >
+       <template  slot-scope="scope">
+         {{
+           scope.row.type=='租'?
+           scope.row.rentPrice*scope.row.daynumber*scope.row.amount:scope.row.price*scope.row.amount
+           }}
+        </template>
+        </el-table-column>
+        <el-table-column
+        prop="remark"
+        label="备注"
+        >
+      </el-table-column>
+    </el-table>
+  
   <div class="heading">
     <div class="subheading ">
   <img src="@assets/home/操作.png" alt="">
   <span>操作信息</span>
   </div>
-    <el-button type="primary" class="btn" @click="remark= true">备注订单</el-button>
+    <el-button type="primary" class="btn" @click="remark=true">备注订单</el-button>
   </div>
    <el-card class="box-card BoxThree Box">
    <div class="con">
@@ -138,7 +153,7 @@
      <span>N/A</span>
    </div>
   </el-card>
-  <el-dialog
+    <el-dialog
   title="备注订单"
   :visible.sync="remark"
   width="45%"
@@ -161,37 +176,57 @@
 <script>
 export default {
 name:'',
-components:{
-},
 data () {
   return {
-    // 收货人信息的类
-    remark:false,
+     remark:false,
     form:{
       remark:''
     },
+    // 收货人信息的类
     Information:{
       commodity:'迪迦奥特曼',
       telephone:'10086',
       address:'银河系奥特曼村',
       code:'123456'
     },
-   tableData: [{
+   tableData: [
+        {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
           number: 'A-10086',
+          name:'超级马里奥',
           price: '289',
-         type: '租',
-         attribute: '豪华版',
-         amount:1,
-         remark:'这是一个备注'
+          rentPrice: 514,
+          type: '租',
+          daynumber:1,
+          attribute: '豪华版',
+          amount:1,
+          remark:'这是一个备注',
         },
         {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
           number: 'A-10086',
+          name:'超级马里奥',
           price: '289',
-         type: '租',
-         attribute: '豪华版',
-         amount:1,
-         remark:'这是一个备注'
-        }]
+          rentPrice: 514,
+          type: '买',
+          daynumber:0,
+          attribute: '豪华版',
+          amount:1,
+          remark:'这是一个备注'
+        },
+        {
+          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          number: 'A-10086',
+          name:'超级马里奥',
+          price: '289',
+          rentPrice: 514,
+          type: '租',
+          daynumber:10,
+          attribute: '豪华版',
+          amount:2,
+          remark:'这是一个备注'
+        }
+        ]
     
   }
 },
@@ -260,7 +295,7 @@ img {
       width: 21px;
     }
     span{
-      color: #F56C6C;
+      color: #8CC1FF;
       margin-left: 10px;
       font-size: 14px;
     }
@@ -353,13 +388,14 @@ font-weight: bold;
   }
   .btn{
     background-color: #FCC41B;
-    &:hover{
+     &:hover{
       background-color: #ffdd79;
     }
   }
 }
 .Box{
-  height: 115px;
+  height: 150px;
+  margin-bottom:133px;
   .NA{
     margin: 0 auto;
     width: 45px;
@@ -372,6 +408,7 @@ font-weight: bold;
     }
   }
 }
+// 弹出框按钮颜色
 .dialog-footer
 {
   margin: 25px 0 14px 0;

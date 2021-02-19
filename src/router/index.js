@@ -35,11 +35,20 @@ const router = new VueRouter({
     {path:'/OrderList',component: () => import('@views/merchant/OrderList.vue')},
     {path:'/OrderManage',component: () => import('@views/merchant/OrderManage.vue')},
     {path:'/sendback',component: () => import('@views/merchant/sendback.vue')},
-    {path:'/orderfirst',component: () => import('@views/order/first.vue')},
-    {path:'/ordersecond',component: () => import('@views/order/second.vue')},
-    {path:'/orderthree',component: () => import('@views/order/three.vue')},
-    {path:'/orderfour',component: () => import('@views/order/four.vue')},
-    {path:'/orderfifth',component: () => import('@views/order/fifth.vue')},
+    {path:'/SubmitOrder',component: () => import('@views/order/SubmitOrder.vue')},
+    {path:'/PayOrder',component: () => import('@views/order/PayOrder.vue')},
+    {path:'/OrderDeliver',component: () => import('@views/order/OrderDeliver.vue')},
+    {path:'/Confirm',component: () => import('@views/order/Confirm.vue')},
+    {path:'/Finish',component: () => import('@views/order/Finish.vue')},
+    {path:'/SubmitOrderBack',component: () => import('@views/sendback/SubmitOrderBack.vue')},
+    {path:'/PayOrderBack',component: () => import('@views/sendback/PayOrderBack.vue')},
+    {path:'/ConfirmBack',component: () => import('@views/sendback/ConfirmBack.vue')},
+    {path:'/FinishBack',component: () => import('@views/sendback/FinishBack.vue')},
+    {path:'/OrderDeliverBack',component: () => import('@views/sendback/OrderDeliverBack.vue')},
+
+
+
+    
 
 
 

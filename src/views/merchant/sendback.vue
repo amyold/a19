@@ -1,4 +1,5 @@
 <template>
+<!-- 退还货待处理 -->
   <el-container>
     <el-header>
       <div class="name">
@@ -69,7 +70,7 @@
        <el-table-column
          label="操作"
          show-overflow-tooltip>
-         <el-button  type="primary" class="edit">查看详情</el-button>
+         <el-button  type="primary" class="edit" @click="switchTo('/SubmitOrderBack')">查看详情</el-button>
        </el-table-column>
      </el-table>
      <div id="page">
@@ -89,6 +90,13 @@
 <script>
 export default {
 name:'',
+methods:{
+  switchTo(path) {
+        console.log("hello");
+        console.log(path);
+        this.$router.push(path)
+      },
+},
  data() {
     return {
        count: 1,
@@ -129,6 +137,13 @@ name:'',
     padding-right: 12px;
   }
 }
+.el-button--primary {
+  width: 96px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+}
 .about {
   display: flex;
   flex-direction: column;
@@ -151,6 +166,13 @@ name:'',
     .page {
       margin-top: 24px;
     }
+    .edit {
+  background-color: #957BF1;
+  &:hover{
+      background-color: #a38ef4;
+
+  }
+}
   }
 }
 .el-pagination {
