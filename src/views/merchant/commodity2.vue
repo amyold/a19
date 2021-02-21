@@ -3,7 +3,7 @@
     <el-header>
       <div class="name">
         <img src="@assets/home/菜单.png" alt="">
-        <div>分类管理</div>
+        <div style="cursor: pointer" @click="showingDetail = false">分类管理</div>
       </div>
     </el-header>
 
@@ -15,7 +15,7 @@
       </el-row>
 
       <!-- 搜索得到的分类物品 -->
-      <el-table :data="filteredCategoryList">
+      <el-table v-if="!showingDetail" :data="filteredCategoryList">
         <el-table-column type="selection" align="center"></el-table-column>
         <el-table-column prop="name"
                          label="类别名"
@@ -32,7 +32,7 @@
                          min-width="300"
                          align="center">
         </el-table-column>
-        <el-table-column prop="creatTime"
+        <el-table-column prop="createTime"
                          label="创建时间"
                          min-width="300"
                          align="center">
@@ -41,7 +41,7 @@
                          min-width="100"
                          align="center">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row.name)" type="text" size="small" round
+            <el-button @click="viewDetail(scope.row.name)" type="text" size="small" round
                        style="background-color: #957BF1; color: #ffffff;">
               查看详情
             </el-button>
@@ -49,14 +49,33 @@
         </el-table-column>
       </el-table>
 
+      <category-detail-navbar v-if="showingDetail" v-model="showingStatus"></category-detail-navbar>
+
+      <el-table v-if="showingDetail && showingStatus === 0" :data="filteredItemList">
+        <el-table-column label="商品名" prop="name" align="center"></el-table-column>
+        <el-table-column label="总租赁期" prop="rentTimeTotal" align="center"></el-table-column>
+        <el-table-column label="剩余租赁期" prop="rentTimeLeft" align="center"></el-table-column>
+        <el-table-column label="押金" prop="deposit" align="center"></el-table-column>
+        <el-table-column label="租金/天" prop="rentPrice" align="center"></el-table-column>
+        <el-table-column label="商品号" prop="itemNumber" align="center"></el-table-column>
+        <el-table-column label="订单号" prop="orderId" align="center"></el-table-column>
+        <el-table-column label="订单金额" prop="orderAmount" align="center"></el-table-column>
+        <el-table-column label="买家id" prop="buyerId" align="center"></el-table-column>
+        <el-table-column label="付款时间" prop="payDate" align="center"></el-table-column>
+        <el-table-column label="操作">
+          <template>
+            <el-button style="background-color: #957BF1; color: #ffffff">查看详情</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
       <!-- 分页 -->
       <el-pagination
           :current-page="page"
-          :page-size="limit"
+          :page-size="10"
           :total="total"
           style="padding: 30px 0; text-align: center;"
           layout="total, prev, pager, next, jumper"
-          @current-change="getBookByCondition"
       />
     </el-main>
 
@@ -65,14 +84,14 @@
 
 <script>
 import Delete from "@components/delete";
+import CategoryDetailNavbar from "@components/CategoryDetailNavbar";
 
 export default {
-  components: {Delete},
+  components: {CategoryDetailNavbar, Delete},
   data() {
     return {
-      page: 1,
-      limit: 5,
-      total: 2,
+      showingDetail: false,
+      activeCategory: "",
       categoryList: [
         {
           name: 'switch卡带',//类别名
@@ -87,27 +106,84 @@ export default {
           createTime: '2021/1/24/19:01'//创建时间
         }
       ],
-      search: ""
+      itemList: [],
+      search: "",
+      page: 1,
+      /**
+       * 0: 租赁中
+       * 1: 待归还
+       * 2: 驿站中
+       * 3: 仓库中
+       * 4: 已卖出
+       */
+      showingStatus: 0
     }
   },
   created() {
-
+    // TODO
   },
   methods: {
     searchHandler() {
 
     },
-    handleClick(id) {
-      // this.$router.push('/rent')
-      id
+    viewDetail(name) {
+      this.activeCategory = name;
+      this.showingStatus = 0;
+      this.showingDetail = true;
     },
-    getBookByCondition() {
-
-    }
   },
   computed: {
     filteredCategoryList() {
       return this.categoryList.filter(i => i.name.includes(this.search));
+    },
+    filteredItemList() {
+      return this.itemList.filter(i => i.name.includes(this.search));
+    },
+    total() {
+      if (this.activeCategory === "") {
+        return this.filteredCategoryList.length;
+      } else {
+        return this.filteredItemList.length;
+      }
+    }
+  },
+  watch: {
+    activeCategory: function (val) {
+      if (val !== '') {
+        switch (this.showingStatus) {
+          case 0: {
+            this.itemList = [
+              {
+                name: "Test1",
+                rentTimeTotal: 30,
+                rentTimeLeft: 3,
+                stock: 100,
+                rentPrice: 1,
+                itemNumber: "SDRF001",
+                orderId: "abaa999",
+                orderAmount: 30,
+                buyerId: "minus",
+                payDate: "2020/12/23"
+              },
+              {
+                name: "Test2",
+                rentTimeTotal: 30,
+                rentTimeLeft: 3,
+                stock: 100,
+                rentPrice: 1,
+                itemNumber: "SDRF001",
+                orderId: "abaa999",
+                orderAmount: 30,
+                buyerId: "minus",
+                payDate: "2020/12/23"
+              }
+            ];
+            break;
+          }
+        }
+      } else {
+        this.itemList = [];
+      }
     }
   }
 }
