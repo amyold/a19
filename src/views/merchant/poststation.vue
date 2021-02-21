@@ -22,7 +22,7 @@
         >
         </el-card>
       </el-col>
-         <el-button  icon="el-icon-sort" id="sort" @click="searchHandler" class='sort' circle></el-button>
+         <el-button icon="el-icon-sort" id="sort" @click="searchHandler" class='delete' circle></el-button>
          <el-button  icon="el-icon-delete" id="drop" @click="searchHandler" class='drop' circle></el-button>
     </el-row>
 
@@ -140,7 +140,7 @@ data() {
   margin-top: 15px;
   margin-left: 350px;
 }
-.sort {
+.delete {
   margin-top: 15px;
   margin-left: 30px;
   background-color:blue;

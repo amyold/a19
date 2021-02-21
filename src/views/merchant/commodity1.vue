@@ -7,12 +7,14 @@
       </div>
     </el-header>
     <el-main>
-      <el-row class="box">
-        <!--TODO-->
+      <el-row style="display: flex; margin-bottom: 16px;">
+        <search></search>
+        <sort></sort>
+        <delete></delete>
       </el-row>
       <el-row class="box">
         <el-table :data="items">
-          <el-table-column type="selection"></el-table-column>
+          <el-table-column type="selection" align="center"></el-table-column>
           <el-table-column label="商品图片">
             <template slot-scope="scope">
               <el-image :src="scope.row.picture"></el-image>
@@ -83,8 +85,10 @@
 </template>
 
 <script>
+import Delete from "@components/delete";
 export default {
   name: 'commodity3',
+  components: {Delete},
   data() {
     return {
       items: [

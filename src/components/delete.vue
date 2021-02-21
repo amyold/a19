@@ -1,17 +1,17 @@
 <template>
-  <div class="sort">
-    <img src="@assets/member/排序.png" alt="排序">
+  <div class="delete">
+    <img src="@assets/member/删除.png" alt="删除">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'sort',
+  name: 'delete',
 }
 </script>
 
 <style lang="scss">
-.sort {
+.delete {
   width: 60px;
   height: 60px;
   border-radius: 30px;
@@ -19,7 +19,7 @@ export default {
   margin-left: 20px;
   justify-content: center;
   align-items: center;
-  background-color: #16C2C2;
+  background-color: #F56C6C;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
   img {
@@ -28,7 +28,7 @@ export default {
   }
 }
 
-.sort:hover {
-  background-color: #21d8d8
+.delete:hover {
+  background-color: #ed4545
 }
 </style>
