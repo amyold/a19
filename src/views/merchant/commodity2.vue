@@ -20,25 +20,30 @@
         <el-table-column prop="name"
                          label="类别名"
                          min-width="200"
+                         key="0"
                          align="center">
         </el-table-column>
         <el-table-column prop="stock"
                          label="商品库存"
                          min-width="200"
+                         key="1"
                          align="center">
         </el-table-column>
         <el-table-column prop="description"
                          label="描述"
                          min-width="300"
+                         key="2"
                          align="center">
         </el-table-column>
         <el-table-column prop="createTime"
                          label="创建时间"
                          min-width="300"
+                         key="3"
                          align="center">
         </el-table-column>
         <el-table-column label="操作"
                          min-width="100"
+                         key="4"
                          align="center">
           <template slot-scope="scope">
             <el-button @click="viewDetail(scope.row.name)" type="text" size="small" round
@@ -52,17 +57,17 @@
       <category-detail-navbar v-if="showingDetail" v-model="showingStatus"></category-detail-navbar>
 
       <el-table v-if="showingDetail && showingStatus === 0" :data="filteredItemList">
-        <el-table-column label="商品名" prop="name" align="center"></el-table-column>
-        <el-table-column label="总租赁期" prop="rentTimeTotal" align="center"></el-table-column>
-        <el-table-column label="剩余租赁期" prop="rentTimeLeft" align="center"></el-table-column>
-        <el-table-column label="押金" prop="deposit" align="center"></el-table-column>
-        <el-table-column label="租金/天" prop="rentPrice" align="center"></el-table-column>
-        <el-table-column label="商品号" prop="itemNumber" align="center"></el-table-column>
-        <el-table-column label="订单号" prop="orderId" align="center"></el-table-column>
-        <el-table-column label="订单金额" prop="orderAmount" align="center"></el-table-column>
-        <el-table-column label="买家id" prop="buyerId" align="center"></el-table-column>
-        <el-table-column label="付款时间" prop="payDate" align="center"></el-table-column>
-        <el-table-column label="操作">
+        <el-table-column key="5" label="商品名" prop="name" align="center"></el-table-column>
+        <el-table-column key="6" label="总租赁期" prop="rentTimeTotal" align="center"></el-table-column>
+        <el-table-column key="7" label="剩余租赁期" prop="rentTimeLeft" align="center"></el-table-column>
+        <el-table-column key="8" label="押金" prop="deposit" align="center"></el-table-column>
+        <el-table-column key="10" label="租金/天" prop="rentPrice" align="center"></el-table-column>
+        <el-table-column key="11" label="商品号" prop="itemNumber" align="center"></el-table-column>
+        <el-table-column key="12" label="订单号" prop="orderId" align="center"></el-table-column>
+        <el-table-column key="13" label="订单金额" prop="orderAmount" align="center"></el-table-column>
+        <el-table-column key="14" label="买家id" prop="buyerId" align="center"></el-table-column>
+        <el-table-column key="15" label="付款时间" prop="payDate" align="center"></el-table-column>
+        <el-table-column key="16" label="操作">
           <template>
             <el-button style="background-color: #957BF1; color: #ffffff">查看详情</el-button>
           </template>
