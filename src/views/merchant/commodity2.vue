@@ -9,20 +9,20 @@
 
     <el-main>
       <el-row style="display: flex; margin-bottom: 16px;">
-        <search></search>
+        <search v-model="search"></search>
         <sort></sort>
         <delete></delete>
       </el-row>
 
       <!-- 搜索得到的分类物品 -->
-      <el-table :data="searchList">
+      <el-table :data="filteredCategoryList">
         <el-table-column type="selection" align="center"></el-table-column>
         <el-table-column prop="name"
-                         label="商品名"
+                         label="类别名"
                          min-width="200"
                          align="center">
         </el-table-column>
-        <el-table-column prop="merchandiseinventory"
+        <el-table-column prop="stock"
                          label="商品库存"
                          min-width="200"
                          align="center">
@@ -32,7 +32,7 @@
                          min-width="300"
                          align="center">
         </el-table-column>
-        <el-table-column prop="creattime"
+        <el-table-column prop="creatTime"
                          label="创建时间"
                          min-width="300"
                          align="center">
@@ -41,8 +41,9 @@
                          min-width="100"
                          align="center">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row.id)" type="text" size="small" round
-                       style="background-color: #957BF1; color: #ffffff;">查看详情
+            <el-button @click="handleClick(scope.row.name)" type="text" size="small" round
+                       style="background-color: #957BF1; color: #ffffff;">
+              查看详情
             </el-button>
           </template>
         </el-table-column>
@@ -72,22 +73,21 @@ export default {
       page: 1,
       limit: 5,
       total: 2,
-      searchList: [
+      categoryList: [
         {
           name: 'switch卡带',//类别名
-          merchandiseinventory: 199,//商品库存
+          stock: 199,//商品库存
           description: '塞尔达的啥啥啥',//描述
-          creattime: '2021/1/24/19:00'//创建时间
+          createTime: '2021/1/24/19:00'//创建时间
         },
         {
           name: 'PlayStation5',//类别名
-          merchandiseinventory: 20,//商品库存
+          stock: 20,//商品库存
           description: '我暑假',//描述
-          creattime: '2021/1/24/19:01'//创建时间
+          createTime: '2021/1/24/19:01'//创建时间
         }
-      ],//分类得到的商品
-      search: "", //当前输入框的值
-      isFocus: false, //是否聚焦
+      ],
+      search: ""
     }
   },
   created() {
@@ -98,8 +98,16 @@ export default {
 
     },
     handleClick(id) {
-      this.$router.push('/rent')
+      // this.$router.push('/rent')
       id
+    },
+    getBookByCondition() {
+
+    }
+  },
+  computed: {
+    filteredCategoryList() {
+      return this.categoryList.filter(i => i.name.includes(this.search));
     }
   }
 }

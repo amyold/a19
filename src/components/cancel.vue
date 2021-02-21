@@ -1,6 +1,6 @@
 <template>
     <div class="cancel">
-        <img src="@assets/member/删除.png">
+        <img src="@assets/member/删除.png" alt="删除">
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     align-items: center;
     background-color: #F56C6C;
     margin-left: 20px;
-    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16); 
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
     img {
         width: 28px;
         height: 25px;

@@ -1,7 +1,8 @@
 <template>
   <el-input
       placeholder="请输入内容"
-      v-model="input"
+      :value="value"
+      @input="$emit('input', $event)"
       prefix-icon="el-icon-search"
       clearable
       class="first">
@@ -11,11 +12,7 @@
 <script>
 export default {
   name: 'search',
-  data() {
-    return {
-      input: ''
-    }
-  }
+  props: ["value"]
 }
 </script>
 
