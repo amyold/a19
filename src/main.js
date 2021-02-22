@@ -9,8 +9,6 @@ import search from '@components/search.vue'
 import sort from '@components/sort.vue'
 import cancel from '@components/cancel.vue'
 import api from './api'
-
-
 Vue.use(api)
 Vue.use(ElementUI);
 Vue.component('search',search)
