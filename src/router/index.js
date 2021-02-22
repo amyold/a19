@@ -39,8 +39,9 @@ const router = new VueRouter({
     {path:'/warehouse',component: () => import('@views/merchant/warehouse.vue')},
     {path:'/sale',component: () => import('@views/merchant/sale.vue')},
      */
-    // 
+  
     {path:'/commodity3',component: () => import('@views/merchant/commodity3.vue')},
+    // 订单管理下的路径
     {path:'/OrderList',component: () => import('@views/merchant/OrderList.vue')},
     {path:'/OrderManage',component: () => import('@views/merchant/OrderManage.vue')},
     {path:'/sendback',component: () => import('@views/merchant/sendback.vue')},
