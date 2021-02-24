@@ -147,7 +147,7 @@ export default {
             //分页控件
             page:
             {
-                total:3,
+                total:0,
                 pageSize:5,
                 pageIndex:0,
                 keyword:""

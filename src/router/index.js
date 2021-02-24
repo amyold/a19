@@ -22,6 +22,9 @@ const router = new VueRouter({
         },
         {
           path:'report',component: () => import('@views/userManage/report.vue')
+        },
+        {
+          path:'administration',component: () => import('@views/userManage/administration.vue')
         }
       ]
     },

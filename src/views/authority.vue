@@ -217,7 +217,7 @@ export default {
          //分页控件
         page:
         {
-              total:3,
+              total:0,
               pageSize:5,
               pageIndex:0,
               keyword:""
@@ -375,23 +375,7 @@ export default {
       handleSelectionChange(val) {
           this.multipleSelection = val;
       }
-    },
-  mounted() {
-    this.getList();
-    const that = this
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth
-        that.screenWidth = window.screenWidth
-        if (that.screenWidth < 993) {
-          that.topImgShow = false
-        } else {
-          that.topImgShow = true
-        }
-      })()
     }
-  },
-
 }
 </script>
 <style lang='scss' scoped>
@@ -420,7 +404,6 @@ export default {
   padding-left: 104px;
   .detail {
     display: flex;
-    width: 85%;
     justify-content: space-between;
     padding-left: 27px;
     padding-right: 329px;
@@ -430,7 +413,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 30%;
+      width: 360px;
       height: 180px;
       background-color: white;
       border-radius: 16px;

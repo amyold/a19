@@ -22,6 +22,9 @@
        prop="productPic"
          label="商品图片"
          width="180">
+         <template slot-scope="scope">
+              <el-image :src="scope.row.productPic"></el-image>
+          </template>
        </el-table-column>
        <el-table-column
          prop="productName"
@@ -68,7 +71,7 @@ export default {
     count: 1,
     tableData: [{
           number: 1,
-          productPic: '我是图片(待修改)',
+          productPic: 'https://s3.ax1x.com/2021/02/23/yLu6eS.jpg',
           productName: '18559120521',
           bussinessName: '奥特小店',
           bussinessAccount: 'automan123',
@@ -76,7 +79,7 @@ export default {
         },
         {
           number: 2,
-          productPic: '我是图片(待修改)',
+          productPic: 'https://s3.ax1x.com/2021/02/23/yLuWJs.jpg',
           productName: '18559120521',
           bussinessName: '奥特小店',
           bussinessAccount: 'automan123',
