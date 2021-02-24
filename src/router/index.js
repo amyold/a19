@@ -10,6 +10,7 @@ VueRouter.prototype.push = function push(location) {
 
 const router = new VueRouter({
   routes:[
+    {path:'/',redirect: '/home'},
     {path:'/home',component: () => import('@views/home.vue')},
     {path:'/authority1',component: () => import('@views/authority.vue')},
     {path:'/authority2',component: () => import('@views/role.vue')},
