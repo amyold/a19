@@ -13,7 +13,6 @@
 <script>
 import navigation from "@components/navigation.vue";
 import topBar from "@components/topBar.vue";
-import TopBar from './components/topBar.vue';
 export default {
   name: "app",
   components: {
