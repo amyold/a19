@@ -1,21 +1,26 @@
 <template>
   <div id="app">
     <el-container>
-      <navigation/>
-      <router-view></router-view>
+      <el-aside><navigation/></el-aside>
+      <el-container>
+        <el-header height="40px"><topBar/></el-header>
+        <el-main><router-view></router-view></el-main>
+      </el-container>
     </el-container>
-    
   </div>
 </template>
 
 <script>
-import navigation from '@components/navigation.vue'
+import navigation from "@components/navigation.vue";
+import topBar from "@components/topBar.vue";
+import TopBar from './components/topBar.vue';
 export default {
-    name:'app',
-    components: {
-      navigation
-    }
-}
+  name: "app",
+  components: {
+    navigation,
+    topBar
+  },
+};
 </script>
 <style lang="scss">
 * {
@@ -25,7 +30,6 @@ export default {
 }
 
 body {
-  background-color: #F8F9FC;
+  background-color: #f8f9fc;
 }
-
 </style>
