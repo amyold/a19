@@ -28,6 +28,10 @@ export default {
   font-family: "微软雅黑";
 }
 
+.el-container .el-main {
+  padding: 0;
+}
+
 body {
   background-color: #f8f9fc;
 }

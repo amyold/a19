@@ -217,7 +217,7 @@ export default {
 .title {
   display: flex;
   font-size: 18px;
-  padding-top: 12px;
+  padding-top: 20px;
   padding-left: 120px;
   width: 120px;
   img {
