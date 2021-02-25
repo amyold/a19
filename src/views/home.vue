@@ -63,14 +63,14 @@
           <div>常用功能</div>
         </div>
         <div class="useful">
-          <div class="box" @click="chooseFunc('/commodity2')">
+          <div class="box" @click="chooseFunc('/commodityKind')">
             <div class="talk">
               <p class="up">分类管理</p>
               <p class="down">自由管理不同种类</p>
             </div>
             <img src="@assets/home/pic5.png" />
           </div>
-          <div class="box" @click="chooseFunc('/commodity3')">
+          <div class="box" @click="chooseFunc('/commodityUpload')">
             <div class="talk">
               <p class="up">上传商品</p>
               <p class="down">添加点新鲜血液吧</p>
@@ -91,7 +91,7 @@
             </div>
             <img src="@assets/home/pic8.png" />
           </div>
-          <div class="box" @click="chooseFunc('/authority1')">
+          <div class="box" @click="chooseFunc('/authorityPerson')">
             <div class="talk">
               <p class="up">添加权限人员</p>
               <p class="down">人多力量大</p>
