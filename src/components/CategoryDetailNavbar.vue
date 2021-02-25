@@ -20,6 +20,16 @@ export default {
 
 <style scoped>
 #categoryDetailNavbar {
-  margin-bottom: 6px;
-}
+  margin-bottom: 24px;
+  }
+.el-button {
+    width: 180px;
+    height: 60px;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.16);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
 </style>
