@@ -1,23 +1,27 @@
 <template>
   <div id="app">
     <el-container>
-      <merchantaside/>
-      <router-view></router-view>
+      <el-aside><merchantaside /></el-aside>
+      <el-container>
+        <el-header height="40px"><topBar /></el-header>
+          <el-main><router-view></router-view></el-main>
+      </el-container>
     </el-container>
-    
   </div>
 </template>
 
 <script>
-import merchantaside from './components/merchantaside.vue'
+import merchantaside from "@components/merchantaside.vue";
+import topBar from "@components/topBar.vue";
 export default {
-    name:'app',
-    components: {
-        merchantaside
-    }
-}
+  name: "app",
+  components: {
+    merchantaside,
+    topBar,
+  },
+};
 </script>
-<style lang="scss">
+<style>
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +29,10 @@ export default {
 }
 
 body {
-  background-color: #F8F9FC;
+  background-color: #f8f9fc;
 }
 
+.el-container .el-main {
+  padding: 0;
+}
 </style>

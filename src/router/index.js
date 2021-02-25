@@ -10,6 +10,7 @@ VueRouter.prototype.push = function push(location) {
 
 const router = new VueRouter({
   routes:[
+    {path:'/',redirect: '/home'},
     {path:'/home',component: () => import('@views/home.vue')},
     {path:'/authority1',component: () => import('@views/authority.vue')},
     {path:'/authority2',component: () => import('@views/role.vue')},
@@ -32,15 +33,16 @@ const router = new VueRouter({
     {path:'/commodity1',component: () => import('@views/merchant/commodity1.vue')},
     {path:'/commodity2',component: () => import('@views/merchant/commodity2.vue')},
     // 分类管理下的五个路径
-    /*
+    
     {path:'/rent',component: () => import('@views/merchant/rent.vue')},
     {path:'/return',component: () => import('@views/merchant/return.vue')},
     {path:'/poststation',component: () => import('@views/merchant/poststation.vue')},
     {path:'/warehouse',component: () => import('@views/merchant/warehouse.vue')},
     {path:'/sale',component: () => import('@views/merchant/sale.vue')},
-     */
-    // 
+     
+  
     {path:'/commodity3',component: () => import('@views/merchant/commodity3.vue')},
+    // 订单管理下的路径
     {path:'/OrderList',component: () => import('@views/merchant/OrderList.vue')},
     {path:'/OrderManage',component: () => import('@views/merchant/OrderManage.vue')},
     {path:'/sendback',component: () => import('@views/merchant/sendback.vue')},
