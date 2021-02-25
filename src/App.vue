@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside><merchantaside/></el-aside>
+      <el-aside><merchantaside /></el-aside>
       <el-container>
-        <el-header height="40px"><topBar/></el-header>
-        <el-main><router-view></router-view></el-main>
+        <el-header height="40px"><topBar /></el-header>
+          <el-main><router-view></router-view></el-main>
       </el-container>
     </el-container>
   </div>
@@ -17,11 +17,11 @@ export default {
   name: "app",
   components: {
     merchantaside,
-    topBar
+    topBar,
   },
 };
 </script>
-<style lang="scss">
+<style>
 * {
   margin: 0;
   padding: 0;
@@ -30,5 +30,9 @@ export default {
 
 body {
   background-color: #f8f9fc;
+}
+
+.el-container .el-main {
+  padding: 0;
 }
 </style>
