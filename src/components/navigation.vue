@@ -1,9 +1,9 @@
 <template>
   <el-menu default-active="2" class="el-menu-vertical-demo" router>
     <div class="logo">
-      <img src="@assets/home/paper.png" />
-      <p>ultraman</p>
-    </div>
+          <div class="pic"><img src="@assets/home/logo.png"></div>
+          <p>淘享租</p>
+      </div>
     <el-menu-item index="/home">
       <img src="@assets/home/主页.png" />
       <span slot="title">首页</span>
@@ -49,16 +49,24 @@ export default {
 </script>
 <style lang="scss">
 .logo {
-  display: flex;
-  padding: 57px;
-  background-color: #ffffff !important;
-  border-radius: 0px 32px 32px 0px;
-  p {
-    font-weight: bold;
-    font-size: 20px;
-    color: #707070;
-  }
+    display: flex;
+    padding: 57px;
+    background-color: #ffffff !important;
+    border-radius: 0px 32px 32px 0px;
+    .pic {
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    p {
+        line-height: 48px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #707070; 
+    }
 }
+
 .el-menu-vertical-demo {
   width: 264px;
   height: 995px;
