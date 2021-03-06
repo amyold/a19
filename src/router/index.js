@@ -10,7 +10,8 @@ VueRouter.prototype.push = function push(location) {
 
 const router = new VueRouter({
   routes: [
-    { path: '/', redirect: '/home' },
+    { path: '/', redirect: '/login' },
+    { path: '/login', component: () => import('@views/login.vue') },
     { path: '/home', component: () => import('@views/home.vue') },
     { path: '/authorityPerson', component: () => import('@views/authorityPerson.vue') },
     { path: '/role', component: () => import('@views/role.vue') },
@@ -26,6 +27,7 @@ const router = new VueRouter({
     { path: '/OrderDeliver', component: () => import('@views/order/OrderDeliver.vue') },
     { path: '/Confirm', component: () => import('@views/order/Confirm.vue') },
     { path: '/Finish', component: () => import('@views/order/Finish.vue') },
+    { path: '/chat', component: () => import('@views/chat.vue')}
   ]
 })
 

@@ -4,8 +4,8 @@
       class="el-menu-vertical-demo"
       router>
       <div class="logo">
-          <img src="@assets/home/paper.png">
-          <p>ultraman</p>
+          <div class="pic"><img src="@assets/home/logo.png"></div>
+          <p>淘享租</p>
       </div>
       <el-menu-item index="/home">
         <img src="@assets/home/主页.png">
@@ -57,7 +57,7 @@
             <span slot="title">角色列表</span>
           </el-menu-item>
         </el-submenu>
-         <el-menu-item index="/message">
+         <el-menu-item index="/chat">
            <img src="@assets/home/消息.png">
             <span slot="title">消息回复</span>
           </el-menu-item>
@@ -78,7 +78,14 @@ export default {
     padding: 57px;
     background-color: #ffffff !important;
     border-radius: 0px 32px 32px 0px;
+    .pic {
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
     p {
+        line-height: 48px;
         font-weight: bold;
         font-size: 20px;
         color: #707070; 
