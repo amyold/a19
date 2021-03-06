@@ -6,7 +6,7 @@
         <div><img src="@assets/home/加.png" alt="" /></div>
       </div>
       <div class="chatWindow">
-        <div class="avater"><img src="@assets/auto.jpg" alt="" /></div>
+        <div class="avater"><img src="@assets/auto.png" alt="" /></div>
         <div class="detail">
           <div class="info">
             <p class="infoName">智能客服</p>
@@ -23,6 +23,7 @@
         智能客服
         <img src="@assets/home/火热.png" />
       </div>
+      <!-- TO DO vue-scroll滑轮以及emoji,图片 -->
       <div class="talkArea">
         <div
           class="item my text"
@@ -262,7 +263,6 @@ export default {
   }
   .contentInfo {
     padding: 10px;
-    background-color: #95ec69;
     border-radius: 4px;
     display: flex;
     flex-direction: row;
@@ -277,6 +277,9 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+  .contentInfo {
+    background-color: #95ec69;
+  }
 }
 .other {
   margin-left: 10px;
@@ -284,5 +287,9 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  .contentInfo {
+    background-color: #8a8a8a;
+    color: white;
+  }
 }
 </style>
