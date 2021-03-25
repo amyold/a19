@@ -166,6 +166,10 @@ export default {
       border: 0.2px solid #e6e6e6;
       display: flex;
       align-items: center;
+      background-color: white;
+      &:hover {
+        background-color: rgb(240, 240, 240);
+      }
       .avater {
         padding-left: 12px;
         img {
