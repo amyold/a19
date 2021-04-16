@@ -7,7 +7,7 @@
           <p>中心仓库</p>
         </div>
         <div class="warehouse">
-          <p>福建省福州市大学城中心仓库</p>
+          <p>某某省某某市某某中心仓库</p>
           <img  @click="exit" src="../assets/exit.png" />
         </div>
       </div>

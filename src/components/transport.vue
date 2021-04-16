@@ -71,7 +71,7 @@ export default {
           productName: "超级马里奥",
           dayNumber: "10天",
           cost: "10元/天",
-          address: "福建省福州市闽侯县大学城",
+          address: "某某省某某市某某大学城",
           clientInfo: "minus/18559120521",
           bussinessInfo: "minus/18559120521",
           state: "运输中"
@@ -82,7 +82,7 @@ export default {
           productName: "塞尔达传说",
           dayNumber: "16天",
           cost: "12元/天",
-          address: "福建省福州市闽侯县大学城",
+          address: "某某省某某市某某大学城",
           clientInfo: "plus/18559120521",
           bussinessInfo: "minus/18559120521",
           state: "待支付"
@@ -93,7 +93,7 @@ export default {
           productName: "超级马里奥",
           dayNumber: "10天",
           cost: "10元/天",
-          address: "福建省福州市闽侯县大学城",
+          address: "某某省某某市某某大学城",
           clientInfo: "minus/18559120521",
           bussinessInfo: "minus/18559120521",
           state: "待发货"
@@ -104,7 +104,7 @@ export default {
           productName: "塞尔达传说",
           dayNumber: "16天",
           cost: "12元/天",
-          address: "福建省福州市闽侯县大学城",
+          address: "某某省某某市某某大学城",
           clientInfo: "plus/18559120521",
           bussinessInfo: "minus/18559120521",
           state: "待支付"
