@@ -73,7 +73,7 @@
           <el-switch style="margin-left: 8px" disabled v-model="supportLeaseRenewal"></el-switch>
         </el-col>
         <el-col :span="6">
-          <span class="label">是否愿意寄存驿站</span>
+          <span class="label">是否愿意寄存中心仓库</span>
           <el-switch style="margin-left: 8px" disabled v-model="hostStation"></el-switch>
         </el-col>
       </el-row>

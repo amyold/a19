@@ -90,7 +90,7 @@
               </el-form-item>
             </el-col>
             <el-col :span="7">
-              <el-form-item label-width="100" label="是否愿意寄存驿站" prop="hostStation">
+              <el-form-item label-width="100" label="是否愿意寄存中心仓库" prop="hostStation">
                 <el-switch v-model="form.hostStation"></el-switch>
               </el-form-item>
             </el-col>
@@ -110,7 +110,8 @@
           <el-form-item label="商品导入" prop="sku" required>
             <!--TODO-->
             <el-row>
-              <el-button style="background-color: #957BF1; color: white;">excel导入</el-button>
+              <el-button style="background-color: #957BF1; color: white;" class='upload' @click="uploadClick">excel导入</el-button>
+              <input type="file" class="jsin" style="display:none">
               <el-button style="background-color: #32CD9F; color: white;">生成信息</el-button>
             </el-row>
             <el-row>
@@ -380,6 +381,10 @@ export default {
     upload: function () {
       // TODO
       this.step = 3;
+    },
+    uploadClick(){
+      let jsin=document.getElementsByClassName('jsin')[0];
+                jsin.click();
     }
   }
 }

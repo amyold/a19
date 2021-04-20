@@ -17,9 +17,10 @@
             <img src="@assets/member/添加人员.png">
             <el-button type="primary" @click="addpeople=true">单独添加</el-button>
           </div>
-          <div class="box">
+          <div class="box" @click="uploadClick">
             <img src="@assets/member/重点人群.png">
-            <el-button type="primary" @click="batchadd=true">批量添加</el-button>
+            <input class="upload" style="display:none">
+            <el-button type="primary" @click="batchadd=true" >批量添加</el-button>
           </div>
           <div class="box">
             <img src="@assets/member/模板.png">
@@ -121,9 +122,11 @@
   width="40%"
   class="dialog_two"
   >
-  <div class="box">
+  <div class="box upload"  @click="uploadClick">
     <img src="@assets/home/上传.png" alt="">
+    <input type="file" class="jsin"  >
     <span>点击上传</span>
+  
   </div>
   <div class="dialog-footer">
     <el-button type="primary" @click="batchadd = false">取 消</el-button>
@@ -175,6 +178,10 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+      uploadClick(){
+          let jsin=document.getElementsByClassName('jsin')[0];
+          jsin.click();
       }
     },
      mounted() {
@@ -197,6 +204,10 @@ export default {
 </script>
 <style lang='scss' scoped>
 @import '@style/color.scss';
+.jsin{
+  display: none;
+
+}
 .el-header{
   padding: 0 0;
 }

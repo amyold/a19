@@ -8,7 +8,7 @@
       </div>
       <div class="password">
         <p>密码</p>
-        <input type="type" />
+        <input type="password" />
         <div class="op">
           <p>忘记密码</p>
           <p @click="change">没有账号？立即注册</p>

@@ -53,7 +53,7 @@
                             </el-switch>
                       </span>
                        <span>
-                          是否愿意寄存驿站
+                          是否愿意寄存中心仓库
 
                            <el-switch
                             v-model="value2"
