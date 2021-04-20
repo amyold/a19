@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-.first /deep/.el-input__inner {
+.first .el-input__inner {
   line-height: 64px;
   height: 64px;
   outline: none;

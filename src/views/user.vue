@@ -18,7 +18,7 @@
             商品审核：1
           </button>
           <button @click="switchTo('report')" class="choose" name='btn'>
-            举报管理：1
+            举报反馈：1
           </button>
           <button @click="switchTo('administration')" class="choose" name='btn'>
             商家管理：1
