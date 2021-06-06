@@ -24,7 +24,7 @@
       </div>
       <div class="password">
         <p>密码</p>
-        <input type="password" />
+        <input type="text" />
       </div>
       <div class="password">
         <p>确认密码</p>
