@@ -142,7 +142,7 @@
       </el-row>
       <el-row v-if="this.step === 2" class="box" :span="24">
         <item-detail :title="form.title"
-                     :album='["https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg", "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"]'
+                     :album='["https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg", "https://selular.id/wp-content/uploads/2020/06/Foto-3-Xiaomi-Redmi-Note-9-1.jpeg"]'
                      :desc="form.description"
                      :price="form.price"
                      :rent-price="form.rentPrice"
@@ -151,7 +151,7 @@
                      :rent-time-to="form.rentTimeTo"
                      :stock="form.stock"
                      :details="form.details"
-                     :photos="['https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg', 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg']"
+                     :photos="['https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg', 'https://selular.id/wp-content/uploads/2020/06/Foto-3-Xiaomi-Redmi-Note-9-1.jpeg']"
                      :deposit="form.deposit"
                      :support-buy-after-rent="form.supportRentBeforeBuy"
                      :support-lease-renewal="form.supportLeaseRenewal"
@@ -165,8 +165,8 @@
       </el-row>
       <el-row v-if="this.step === 3" class="box" :span="24">
         <el-table :data="[{
-          name: 'Test',
-          picture: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          name: 'Redmi',
+          picture: 'https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg',
           number: form.number,
           price: form.price,
           rentPrice: form.rentPrice,
