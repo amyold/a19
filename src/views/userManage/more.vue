@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="name">
-      <img src="@assets/home/菜单.png" />
+      <img src="https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg />
       <el-breadcrumb separator="/" class="title">
         <el-breadcrumb-item :to="{ path: '/user/check' }" class="one"
           >用户管理</el-breadcrumb-item
@@ -17,12 +17,12 @@
       <div class="content">
         <el-card class="card" shadow="never">
           <div class="top">
-            <img src="@assets/home/商品2.png" alt="" />
+            <img src="https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg" alt="" />
             <span>商品详情</span>
           </div>
           <div class="down">
             <div class="left">
-              <img src="@assets/home/塞尔达.jpeg" alt="" />
+              <img src="https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg" alt="" />
             </div>
             <div class="right">
               <span>{{ detail.title }}</span>
@@ -40,7 +40,6 @@
               </span>
               <span>分类 </span>
               <span>参数详情 <div class="parameter">{{ detail.particulars }}</div></span>
-              <span>图片详情 </span>
               <span>押金设置 ￥{{ detail.guarantee }}</span>
               <span>
                 是否支持先租后买
@@ -77,18 +76,18 @@
         </el-card>
         <el-card class="card" shadow="never">
           <div class="top">
-            <img src="@assets/home/店铺.png" alt="" />
+            <img src="https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg" alt="" />
             <span>店铺详情</span>
           </div>
           <div class="down">
             <div class="left">
-              <img src="@assets/home/店铺头像.jpg" alt="" />
+              <img src="https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg" alt="" />
             </div>
             <div class="right">
               <span>店铺名: {{ shop.name }} </span>
               <span>店铺描述: {{ shop.description }}</span>
-              <span>营业执照</span>
-              <span>品牌代理书或其他材料</span>
+              <span>营业执照：已审核</span>
+              <span>品牌代理书或其他材料：已审核</span>
             </div>
           </div>
         </el-card>
@@ -143,25 +142,24 @@ export default {
       value2: true,
       detail: {
         title:
-          "【国行游戏机专用】任天堂Switch游戏卡ns马里奥奥德赛卡丁车健身环大冒险卡带舞力全开马力欧网球兑换码下载",
-        price: 100,
-        rent: 0,
+          "Redmi Note 9 5G ",
+        price: 1199,
+        rent: 12.99,
         introduction:
-          "超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩超好玩！！！！！！",
-        inventory: 100,
+          "天玑800U 18W快充 4800万超清三摄 云墨灰 6GB+128GB 游戏智能手机 小米 红米",
+        inventory:10,
         time: {
           min: 1,
-          max: 100,
+          max: 365,
         },
-        particulars:
-          "超级马力欧 奥德赛》（Super Mario Odyssey）是任天堂游戏公司发行的开放世界动作冒险游戏（沙盒）。 [1-2]  2017年10月27日独占登陆新主机NS（Nintendo Switch）。 [3]  本作是睽违15年、继承《超级马力欧64》以及《超级阳光马力欧》高自由度血脉的箱庭探索3D马力欧正统续作。 [3]  游戏对应官方繁体中文和简体中文。EDGE，IGN和Gamestop均给出满分评定，媒体均给出极高的正面评价，综评网站Metacritic《奥德赛》的综评为97",
-        guarantee: 100,
-        site: "M72星云",
+        particulars:"商品名称：小米Redmi Note9 5G商品编号：100016813958商品毛重：460.00g商品产地：中国大陆CPU型号：天玑800U运行内存：6GB机身存储：128GB存储卡：支持MicroSD(TF)摄像头数量：后置三摄后摄主摄像素：4800万像素前摄主摄像素：1300万像素分辨率：全高清FHD+屏幕比例：19.1~19.5:9屏幕前摄组合：其他充电器：其他充电功率：18-19W支持IPv6：支持IPv6屏占比：≥90%系统：Android",
+        guarantee: 500,
+        site: "浙江义乌",
       },
       shop: {
-        name: "奥特曼店",
+        name: "小米之家",
         description:
-          "店铺描述：真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错",
+          "店铺描述：小米官方租赁平台",
       },
       ruleForm: {
         reason: "",

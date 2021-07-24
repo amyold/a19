@@ -2,8 +2,8 @@
   <div class="bar">
     <div class="info"><img src="@assets/home/消息1.png" /></div>
     <div class="avater">
-      <img src="@assets/home/avater.jpg" />
-      <p>minus</p>
+      <img src="https://th.bing.com/th/id/OIP.jNp2SPF7TX1_myPQ9HCHXQHaH0?pid=ImgDet&w=509&h=537&rs=1" />
+      <p>管理员:赵海东</p>
     </div>
     <!-- <div class="exit" @click="leave"><img src="@assets/home/退出.png" /></div> -->
     <div class="exit" @click="leave"><img src="@assets/home/退出.png"/></div>
@@ -68,7 +68,7 @@ export default {
   }
 
   .avater {
-    width: 100px;
+    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;

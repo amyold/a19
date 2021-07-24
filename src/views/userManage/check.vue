@@ -69,22 +69,39 @@ export default {
     return {
     value1: true,
     count: 1,
-    tableData: [{
-          number: 1,
-          productPic: 'https://s3.ax1x.com/2021/02/23/yLu6eS.jpg',
-          productName: '18559120521',
-          bussinessName: '奥特小店',
-          bussinessAccount: 'automan123',
-          bussinessScope: '贩卖各种怪兽宠物'
-        },
+    tableData: [
         {
-          number: 2,
-          productPic: 'https://s3.ax1x.com/2021/02/23/yLuWJs.jpg',
-          productName: '18559120521',
-          bussinessName: '奥特小店',
+          number: 1,
+          productPic: 'https://th.bing.com/th/id/OIP._ywz8NtRKox6M5gykTc2_AHaGD?pid=ImgDet&rs=1',
+          productName: '小米11青春版',
+          bussinessName: '小米之家',
           bussinessAccount: 'automan123',
-          bussinessScope: '贩卖各种怪兽宠物'
-        }
+          bussinessScope: '家电数码'
+        },
+         {
+          number: 2,
+          productPic: 'https://th.bing.com/th/id/OIP.JSsB9dbXWxQ1WUR2sXrOwgHaHa?pid=ImgDet&rs=1',
+          productName: '小米11',
+          bussinessName: '小米之家',
+          bussinessAccount: 'automan123',
+          bussinessScope: '家电数码'
+        },
+         {
+          number: 3,
+          productPic: 'https://th.bing.com/th/id/OIP.fDDqxE4vWucxrct0nSKmzgHaIq?pid=ImgDet&rs=1',
+          productName: 'Redmi Note8 Pro',
+          bussinessName: '小米之家',
+          bussinessAccount: 'automan123',
+          bussinessScope: '家电数码'
+        },
+         {
+          number: 4,
+          productPic: 'https://th.bing.com/th/id/OIP.bo7-Y-u2qiP8FfNOC7G1MwHaHp?pid=ImgDet&rs=1',
+          productName: 'iphone 11',
+          bussinessName: 'apple官方租赁店',
+          bussinessAccount: 'aut1232453',
+          bussinessScope: '家电数码'
+        },
         ],
         multipleSelection: []
   }

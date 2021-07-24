@@ -15,7 +15,7 @@
         </div>
         <div class="kind">
           <button @click="switchTo('/user/check')" class="choose" name='btn'>
-            商品审核：1
+            商品审核：4
           </button>
           <button @click="switchTo('report')" class="choose" name='btn'>
             举报反馈：1
