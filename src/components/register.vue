@@ -6,7 +6,7 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 1320px"
-        :header-cell-style="{ 'text-align': 'center', 'font-size': '12px', }"
+        :header-cell-style="{ 'text-align': 'center', 'font-size': '12px' }"
         :cell-style="{
           'text-align': 'center',
           'padding-top': '20px',
@@ -38,18 +38,20 @@
         <el-table-column prop="leftTime" label="剩余时间" width="120">
         </el-table-column>
         <el-table-column label="操作" show-overflow-tooltip>
-          <el-button type="primary" @click="open1" class="edit">提醒用户</el-button>
+          <el-button type="primary" @click="open1" class="edit"
+            >提醒用户</el-button
+          >
         </el-table-column>
-      </el-table> 
+      </el-table>
     </div>
     <div class="page">
-        <el-pagination
-          background
-          layout="total, prev, pager, next"
-          :total="count"
-        >
-        </el-pagination>
-      </div>
+      <el-pagination
+        background
+        layout="total, prev, pager, next"
+        :total="count"
+      >
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -68,8 +70,21 @@ export default {
           depositor: "minus",
           phoneNumber: "18559120521",
           bussinessInfo: "minus/18559120521",
-          leftTime: "23:01:13"
-        }
+          leftTime: "23:01:13",
+        },
+        {
+          number: 2,
+          productPic:
+            "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+          productName: "Redmi Note9",
+          depositor: "李凌印",
+          phoneNumber: "18559120521",
+          cost: "12.99元/天",
+          address: "福建省南平市创世纪",
+          clientInfo: "/18559120521",
+          bussinessInfo: "小米官方旗舰店/13859322312",
+          leftTime: "47:10:20",
+        },
       ],
       multipleSelection: [],
     };
@@ -88,12 +103,12 @@ export default {
       this.multipleSelection = val;
     },
     open1() {
-        this.$notify({
-          title: '发送成功',
-          message: '用户已收到您的提醒',
-          type: 'success'
-        });
-      }
+      this.$notify({
+        title: "发送成功",
+        message: "用户已收到您的提醒",
+        type: "success",
+      });
+    },
   },
 };
 </script>

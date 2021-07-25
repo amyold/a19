@@ -48,7 +48,12 @@
             class="edit"
             >填写运单号发货</el-button
           >
-          <el-dialog title="填写运单号" :visible.sync="dialogFormVisible" width="32%" center>
+          <el-dialog
+            title="填写运单号"
+            :visible.sync="dialogFormVisible"
+            width="32%"
+            center
+          >
             <el-form :model="form">
               <el-form-item label="运单号" :label-width="formLabelWidth">
                 <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -84,38 +89,53 @@ export default {
       count: 2,
       dialogFormVisible: false,
       form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '48px',
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: "",
+      },
+      formLabelWidth: "48px",
       tableData: [
         {
           number: 1,
-          productPic: "https://s3.ax1x.com/2021/02/23/yLu6eS.jpg",
-          productName: "超级马里奥",
+          productPic:
+            "https://th.bing.com/th/id/OIP.bo7-Y-u2qiP8FfNOC7G1MwHaHp?pid=ImgDet&rs=1",
+          productName: "apple官方租赁店",
           dayNumber: "10天",
-          cost: "10元/天",
-          address: "某某省某某市某某大学城",
-          clientInfo: "minus/18559120521",
-          bussinessInfo: "minus/18559120521",
+          cost: "25元/天",
+          address: "江苏省南京市高新区",
+          clientInfo: "陈星/18559120521",
+          bussinessInfo: "apple官方租赁店/158591255621",
           state: "待发货",
         },
+
         {
           number: 2,
-          productPic: "https://s3.ax1x.com/2021/02/23/yLuWJs.jpg",
-          productName: "塞尔达传说",
-          dayNumber: "16天",
-          cost: "12元/天",
-          address: "某某省某某市某某大学城",
-          clientInfo: "plus/18559120521",
-          bussinessInfo: "minus/18559120521",
+          productPic:
+            "https://th.bing.com/th/id/OIP.JSsB9dbXWxQ1WUR2sXrOwgHaHa?pid=ImgDet&rs=1",
+          productName: "小米11",
+          dayNumber: "32天",
+          cost: "25元/天",
+          address: "北京市海淀区",
+          clientInfo: "张章/18559120521",
+          bussinessInfo: "小米官方旗舰店/18559120521",
           state: "待支付",
+        },
+        {
+          number: 3,
+          productPic:
+            "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+          productName: "Redmi Note9",
+          dayNumber: "10天",
+          cost: "12.99元/天",
+          address: "福建省南平市创世纪",
+          clientInfo: "李凌印/18559120521",
+          bussinessInfo: "小米官方旗舰店/18559120521",
+          state: "待发货",
         },
       ],
       multipleSelection: [],

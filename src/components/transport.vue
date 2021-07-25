@@ -71,9 +71,9 @@ export default {
           productName: "超级马里奥",
           dayNumber: "10天",
           cost: "10元/天",
-          address: "某某省某某市某某大学城",
-          clientInfo: "minus/18559120521",
-          bussinessInfo: "minus/18559120521",
+          address: "上海市陆家嘴",
+          clientInfo: "彭鹏/13566788835",
+          bussinessInfo: "游戏租赁店/18559120521",
           state: "运输中"
         },
         {
@@ -82,33 +82,45 @@ export default {
           productName: "塞尔达传说",
           dayNumber: "16天",
           cost: "12元/天",
-          address: "某某省某某市某某大学城",
-          clientInfo: "plus/18559120521",
-          bussinessInfo: "minus/18559120521",
-          state: "待支付"
+          address: "山东省曲阜师范大学",
+          clientInfo: "杨余乐/18559120521",
+          bussinessInfo: "游戏租赁店/18559120521",
+          state: "运输中"
         },
         {
-          number: 1,
+          number: 3,
           productPic: "https://s3.ax1x.com/2021/02/23/yLu6eS.jpg",
           productName: "超级马里奥",
           dayNumber: "10天",
           cost: "10元/天",
-          address: "某某省某某市某某大学城",
-          clientInfo: "minus/18559120521",
-          bussinessInfo: "minus/18559120521",
-          state: "待发货"
+          address: "河南省平顶山河南城建学院",
+          clientInfo: "苏旁/18559120521",
+          bussinessInfo: "游戏租赁店/18559120521",
+          state: "运输中"
         },
         {
-          number: 2,
+          number: 4,
           productPic: "https://s3.ax1x.com/2021/02/23/yLuWJs.jpg",
           productName: "塞尔达传说",
           dayNumber: "16天",
           cost: "12元/天",
           address: "某某省某某市某某大学城",
-          clientInfo: "plus/18559120521",
-          bussinessInfo: "minus/18559120521",
-          state: "待支付"
-        }
+          clientInfo: "宋宋/18559120521",
+          bussinessInfo: "游戏租赁店/18559120521",
+          state: "运输中"
+        },
+            {
+          number: 5,
+          productPic:
+            "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+          productName: "Redmi Note9",
+          dayNumber: "10天",
+          cost: "12.99元/天",
+          address: "福建省南平市创世纪",
+          clientInfo: "李凌印/18559120521",
+          bussinessInfo: "小米官方旗舰店/13859322312",
+          state: "运输中",
+        },
       ],
       multipleSelection: [],
     };

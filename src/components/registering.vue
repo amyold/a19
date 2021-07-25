@@ -54,15 +54,15 @@ export default {
       value1: true,
       count: 1,
       tableData: [
-        {
-          number: 1,
-          productPic: "https://s3.ax1x.com/2021/02/23/yLuWJs.jpg",
-          productName: "塞尔达传说",
-          dayNumber: "10天",
-          bussinessName: "一家小店",
-          phoneNumber: "18559120521",
-          state: "寄存中"
-        }
+        // {
+        //   number: 1,
+        //   productPic: "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+        //   productName: "Redmi note9",
+        //   dayNumber: "10天",
+        //   bussinessName: "小米官方旗舰店",
+        //   phoneNumber: "18559120521",
+        //   state: "寄存中"
+        // }
       ],
       multipleSelection: [],
     };

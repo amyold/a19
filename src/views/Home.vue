@@ -7,7 +7,7 @@
           <p>中心仓库</p>
         </div>
         <div class="warehouse">
-          <p>某某省某某市某某中心仓库</p>
+          <p>福建省南平市中心仓库</p>
           <img  @click="exit" src="../assets/exit.png" />
         </div>
       </div>
@@ -49,7 +49,7 @@
             tag="div"
             active-class="active"
           >
-            <button class="choose" name="btn">待发货：2</button>
+            <button class="choose" name="btn">待发货：3</button>
           </router-link>
           <router-link
             to="/home/register"
@@ -65,7 +65,7 @@
             tag="div"
             active-class="active"
           >
-            <button class="choose" name="btn">运输中：4</button>
+            <button class="choose" name="btn">运输中：5</button>
           </router-link>
           <router-link
             to="/home/registering"
@@ -73,7 +73,7 @@
             tag="div"
             active-class="active"
           >
-            <button class="choose" name="btn">寄存中：1</button>
+            <button class="choose" name="btn">寄存中：0</button>
           </router-link>
           <router-link
             to="/home/finished"
