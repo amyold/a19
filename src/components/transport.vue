@@ -109,18 +109,18 @@ export default {
           bussinessInfo: "游戏租赁店/18559120521",
           state: "运输中"
         },
-            {
-          number: 5,
-          productPic:
-            "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
-          productName: "Redmi Note9",
-          dayNumber: "10天",
-          cost: "12.99元/天",
-          address: "福建省南平市创世纪",
-          clientInfo: "李凌印/18559120521",
-          bussinessInfo: "小米官方旗舰店/13859322312",
-          state: "运输中",
-        },
+        //     {
+        //   number: 5,
+        //   productPic:
+        //     "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+        //   productName: "Redmi Note9",
+        //   dayNumber: "10天",
+        //   cost: "12.99元/天",
+        //   address: "福建省南平市创世纪",
+        //   clientInfo: "李凌印/18559120521",
+        //   bussinessInfo: "小米官方旗舰店/13859322312",
+        //   state: "运输中",
+        // },
       ],
       multipleSelection: [],
     };

@@ -49,7 +49,7 @@
             tag="div"
             active-class="active"
           >
-            <button class="choose" name="btn">待发货：3</button>
+            <button class="choose" name="btn">待发货：2</button>
           </router-link>
           <router-link
             to="/home/register"
@@ -65,7 +65,7 @@
             tag="div"
             active-class="active"
           >
-            <button class="choose" name="btn">运输中：5</button>
+            <button class="choose" name="btn">运输中：4</button>
           </router-link>
           <router-link
             to="/home/registering"

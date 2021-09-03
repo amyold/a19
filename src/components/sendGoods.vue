@@ -125,18 +125,18 @@ export default {
           bussinessInfo: "小米官方旗舰店/18559120521",
           state: "待支付",
         },
-        {
-          number: 3,
-          productPic:
-            "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
-          productName: "Redmi Note9",
-          dayNumber: "10天",
-          cost: "12.99元/天",
-          address: "福建省南平市创世纪",
-          clientInfo: "李凌印/18559120521",
-          bussinessInfo: "小米官方旗舰店/18559120521",
-          state: "待发货",
-        },
+        // {
+        //   number: 3,
+        //   productPic:
+        //     "https://www.androidical.com/wp-content/uploads/2020/05/Xiaomi-Redmi-Note-9.jpg",
+        //   productName: "Redmi Note9",
+        //   dayNumber: "10天",
+        //   cost: "12.99元/天",
+        //   address: "福建省南平市创世纪",
+        //   clientInfo: "李凌印/18559120521",
+        //   bussinessInfo: "小米官方旗舰店/18559120521",
+        //   state: "待发货",
+        // },
       ],
       multipleSelection: [],
     };
